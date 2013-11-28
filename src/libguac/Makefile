@@ -152,12 +152,12 @@ HEADERS = $(libguacinc_HEADERS) $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /home/vm/guacamole-server-0.8.3/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
-AUTOCONF = ${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/vm/guacamole-server-0.8.3/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/vm/guacamole-server-0.8.3/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/vm/guacamole-server-0.8.3/missing --run automake-1.11
 AWK = mawk
 CAIRO_LIBS = -lcairo
 CC = gcc -std=gnu99
@@ -167,7 +167,7 @@ CPP = gcc -E
 CPPFLAGS = 
 CUNIT_LIBS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"guacamole-server\" -DPACKAGE_TARNAME=\"guacamole-server\" -DPACKAGE_VERSION=\"0.8.3\" -DPACKAGE_STRING=\"guacamole-server\ 0.8.3\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"guacamole-server\" -DVERSION=\"0.8.3\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FCNTL_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_SOCKET_H=1 -DHAVE_TIME_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_SYSLOG_H=1 -DHAVE_UNISTD_H=1 -DHAVE_CAIRO_CAIRO_H=1 -DHAVE_JPEGLIB_H=1 -D_POSIX_C_SOURCE=199309L -D_BSD_SOURCE=/\*\*/ -DHAVE_LIBPTHREAD=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MEMMOVE=1 -DHAVE_MEMSET=1 -DHAVE_SELECT=1 -DHAVE_STRDUP=1 -DHAVE_NANOSLEEP=1 -DHAVE_PNG_GET_IO_PTR=1 -DHAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH=1 -DENABLE_SSL=1 -DHAVE_RFBCLIENT_DESTHOST=1 -DHAVE_RFBCLIENT_DESTPORT=1 -DENABLE_VNC_REPEATER=1 -DHAVE_FREERDP_LOCALE_KEYBOARD_H=1 -DHAVE_FREERDP_ADDIN_H=1 -DHAVE_FREERDP_CLIENT_CHANNELS_H=1 -DHAVE_FREERDP_CLIENT_CLIPRDR_H=1 -DHAVE_FREERDP_REGISTER_ADDIN_PROVIDER=1 -DENABLE_WINPR=1 -DHAVE_FREERDP_CONTEXTSIZE=1 -DHAVE_RDPSETTINGS_ORDERSUPPORT=1 -DHAVE_WMESSAGE_ID=1
+DEFS = -DPACKAGE_NAME=\"guacamole-server\" -DPACKAGE_TARNAME=\"guacamole-server\" -DPACKAGE_VERSION=\"0.8.3\" -DPACKAGE_STRING=\"guacamole-server\ 0.8.3\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"guacamole-server\" -DVERSION=\"0.8.3\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FCNTL_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_SOCKET_H=1 -DHAVE_TIME_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_SYSLOG_H=1 -DHAVE_UNISTD_H=1 -DHAVE_CAIRO_CAIRO_H=1 -D_POSIX_C_SOURCE=199309L -D_BSD_SOURCE=/\*\*/ -DHAVE_LIBPTHREAD=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MEMMOVE=1 -DHAVE_MEMSET=1 -DHAVE_SELECT=1 -DHAVE_STRDUP=1 -DHAVE_NANOSLEEP=1 -DHAVE_PNG_GET_IO_PTR=1 -DHAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH=1 -DENABLE_SSL=1 -DHAVE_RFBCLIENT_DESTHOST=1 -DHAVE_RFBCLIENT_DESTPORT=1 -DENABLE_VNC_REPEATER=1 -DHAVE_FREERDP_LOCALE_KEYBOARD_H=1 -DHAVE_FREERDP_ADDIN_H=1 -DHAVE_FREERDP_CLIENT_CHANNELS_H=1 -DHAVE_FREERDP_CLIENT_CLIPRDR_H=1 -DHAVE_FREERDP_REGISTER_ADDIN_PROVIDER=1 -DENABLE_WINPR=1 -DHAVE_FREERDP_CONTEXTSIZE=1 -DHAVE_RDPSETTINGS_ORDERSUPPORT=1 -DHAVE_WMESSAGE_ID=1
 DEPDIR = .deps
 DLLTOOL = false
 DL_LIBS = -ldl
@@ -196,7 +196,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/vm/guacamole-server-0.8.3/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -234,10 +234,10 @@ STRIP = strip
 VERSION = 0.8.3
 VNC_LIBS =  -lvncclient
 VORBIS_LIBS = 
-abs_builddir = /home/vm/x/guacamole-server-0.8.3/src/libguac
-abs_srcdir = /home/vm/x/guacamole-server-0.8.3/src/libguac
-abs_top_builddir = /home/vm/x/guacamole-server-0.8.3
-abs_top_srcdir = /home/vm/x/guacamole-server-0.8.3
+abs_builddir = /home/vm/guacamole-server-0.8.3/src/libguac
+abs_srcdir = /home/vm/guacamole-server-0.8.3/src/libguac
+abs_top_builddir = /home/vm/guacamole-server-0.8.3
+abs_top_srcdir = /home/vm/guacamole-server-0.8.3
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -267,7 +267,7 @@ htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
 init_dir = 
-install_sh = ${SHELL} /home/vm/x/guacamole-server-0.8.3/install-sh
+install_sh = ${SHELL} /home/vm/guacamole-server-0.8.3/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -313,7 +313,7 @@ libguac_la_SOURCES = audio.c client.c client-handlers.c error.c hash.c \
 	socket-fd.c socket-nest.c timestamp.c unicode.c wav_encoder.c \
 	$(am__append_1)
 lib_LTLIBRARIES = libguac.la
-libguac_la_LDFLAGS = -version-info 5:0:0 -lpthread -lcairo -lpng -ldl 
+libguac_la_LDFLAGS = -version-info 5:0:0 -lpthread -lcairo -lpng -ljpeg -ldl 
 all: all-am
 
 .SUFFIXES:

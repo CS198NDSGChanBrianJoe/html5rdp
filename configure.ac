@@ -50,7 +50,7 @@ AC_PROG_CC_C99
 AC_PROG_LIBTOOL
 
 # Headers
-AC_CHECK_HEADERS([fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h jpeglib.h])
+AC_CHECK_HEADERS([fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h])
 
 # Source characteristics
 AC_DEFINE([_POSIX_C_SOURCE], [199309L], [Uses POSIX APIs])
@@ -65,8 +65,8 @@ AC_CHECK_LIB([png], [png_write_png], [PNG_LIBS=-lpng],
              AC_MSG_ERROR("libpng is required for writing png messages"))
 
 # libjpeg
-AC_CHECK_LIB([jpeg], [jpeg_tanga], [JPEG_LIBS=-ljpeg],
-	     AC_MSG_ERROR("libjpeg is required for writing jpeg messages"))
+AC_CHECK_LIB([jpeg], [jpeg_write_scanlines], [JPEG_LIBS=-ljpeg],
+             AC_MSG_ERROR("libjpeg is required for writing jpeg messages"))
 
 # Cairo
 AC_CHECK_LIB([cairo], [cairo_create], [CAIRO_LIBS=-lcairo],

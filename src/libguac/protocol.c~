@@ -245,7 +245,7 @@ int __guac_socket_write_length_jpeg(guac_socket* socket, cairo_surface_t* surfac
     syslog(LOG_INFO,"Wala lang");
     closelog();
     openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO,"%x", data);
+    syslog(LOG_INFO,"%s", data);
     closelog();
     //unsigned char data to JSAMPLE since JSAMPLE is just unsigned char and JSAMPLE is the data that is read by libjpeg
     //JSAMPLE* jdata = data;

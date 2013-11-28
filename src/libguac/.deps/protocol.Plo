@@ -47,8 +47,8 @@ protocol.lo: protocol.c /usr/include/stdlib.h /usr/include/features.h \
  guacamole/socket.h guacamole/unicode.h /usr/include/syslog.h \
  /usr/include/x86_64-linux-gnu/sys/syslog.h \
  /usr/include/x86_64-linux-gnu/bits/syslog-path.h \
- /usr/include/x86_64-linux-gnu/bits/syslog.h /usr/local/include/jpeglib.h \
- /usr/local/include/jconfig.h /usr/local/include/jmorecfg.h
+ /usr/include/x86_64-linux-gnu/bits/syslog.h jpeglib.h jconfig.h \
+ jmorecfg.h
 
 /usr/include/stdlib.h:
 
@@ -210,8 +210,8 @@ guacamole/unicode.h:
 
 /usr/include/x86_64-linux-gnu/bits/syslog.h:
 
-/usr/local/include/jpeglib.h:
+jpeglib.h:
 
-/usr/local/include/jconfig.h:
+jconfig.h:
 
-/usr/local/include/jmorecfg.h:
+jmorecfg.h:

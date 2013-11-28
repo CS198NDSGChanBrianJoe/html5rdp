@@ -337,7 +337,7 @@ ssize_t guac_socket_write_base64(guac_socket* socket, const void* buf, size_t co
 
     const unsigned char* char_buf = (const unsigned char*) buf;
     openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO,"Count: %zd", count);
+    syslog(LOG_INFO,"Count: %d", count);
     closelog();
     const unsigned char* end = char_buf + count;
     guac_socket_update_buffer_begin(socket);

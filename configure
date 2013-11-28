@@ -5163,6 +5163,10 @@ freebsd* | dragonfly*)
   fi
   ;;
 
+gnu*)
+  lt_cv_deplibs_check_method=pass_all
+  ;;
+
 haiku*)
   lt_cv_deplibs_check_method=pass_all
   ;;
@@ -5201,7 +5205,7 @@ irix5* | irix6* | nonstopux*)
   ;;
 
 # This must be glibc/ELF.
-linux* | k*bsd*-gnu | kopensolaris*-gnu | gnu*)
+linux* | k*bsd*-gnu | kopensolaris*-gnu)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
@@ -8127,7 +8131,7 @@ lt_prog_compiler_static=
       lt_prog_compiler_static='-non_shared'
       ;;
 
-    linux* | k*bsd*-gnu | kopensolaris*-gnu | gnu*)
+    linux* | k*bsd*-gnu | kopensolaris*-gnu)
       case $cc_basename in
       # old Intel for x86_64 which still supported -KPIC.
       ecc*)
@@ -10297,6 +10301,17 @@ freebsd* | dragonfly*)
   esac
   ;;
 
+gnu*)
+  version_type=linux # correct to gnu/linux during the next big refactor
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  shlibpath_overrides_runpath=no
+  hardcode_into_libs=yes
+  ;;
+
 haiku*)
   version_type=linux # correct to gnu/linux during the next big refactor
   need_lib_prefix=no
@@ -10413,7 +10428,7 @@ linux*oldld* | linux*aout* | linux*coff*)
   ;;
 
 # This must be glibc/ELF.
-linux* | k*bsd*-gnu | kopensolaris*-gnu | gnu*)
+linux* | k*bsd*-gnu | kopensolaris*-gnu)
   version_type=linux # correct to gnu/linux during the next big refactor
   need_lib_prefix=no
   need_version=no
@@ -12311,7 +12326,7 @@ fi
 
 
 # Headers
-for ac_header in fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h jpeglib.h
+for ac_header in fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
@@ -12422,9 +12437,9 @@ fi
 
 
 # libjpeg
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for jpeg_tanga in -ljpeg" >&5
-$as_echo_n "checking for jpeg_tanga in -ljpeg... " >&6; }
-if ${ac_cv_lib_jpeg_jpeg_tanga+:} false; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for jpeg_write_scanlines in -ljpeg" >&5
+$as_echo_n "checking for jpeg_write_scanlines in -ljpeg... " >&6; }
+if ${ac_cv_lib_jpeg_jpeg_write_scanlines+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
@@ -12438,27 +12453,27 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 #ifdef __cplusplus
 extern "C"
 #endif
-char jpeg_tanga ();
+char jpeg_write_scanlines ();
 int
 main ()
 {
-return jpeg_tanga ();
+return jpeg_write_scanlines ();
   ;
   return 0;
 }
 _ACEOF
 if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_jpeg_jpeg_tanga=yes
+  ac_cv_lib_jpeg_jpeg_write_scanlines=yes
 else
-  ac_cv_lib_jpeg_jpeg_tanga=no
+  ac_cv_lib_jpeg_jpeg_write_scanlines=no
 fi
 rm -f core conftest.err conftest.$ac_objext \
     conftest$ac_exeext conftest.$ac_ext
 LIBS=$ac_check_lib_save_LIBS
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_jpeg_jpeg_tanga" >&5
-$as_echo "$ac_cv_lib_jpeg_jpeg_tanga" >&6; }
-if test "x$ac_cv_lib_jpeg_jpeg_tanga" = xyes; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_jpeg_jpeg_write_scanlines" >&5
+$as_echo "$ac_cv_lib_jpeg_jpeg_write_scanlines" >&6; }
+if test "x$ac_cv_lib_jpeg_jpeg_write_scanlines" = xyes; then :
   JPEG_LIBS=-ljpeg
 else
   as_fn_error $? "\"libjpeg is required for writing jpeg messages\"" "$LINENO" 5

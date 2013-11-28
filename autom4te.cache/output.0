@@ -649,8 +649,6 @@ LIBGUAC_LTLIB
 CUNIT_LIBS
 PTHREAD_LIBS
 CAIRO_LIBS
-JPEG_LIBS
-PNG_LIBS
 DL_LIBS
 CPP
 OTOOL64
@@ -12311,7 +12309,7 @@ fi
 
 
 # Headers
-for ac_header in fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h jpeglib.h
+for ac_header in fcntl.h stdlib.h string.h sys/socket.h time.h sys/time.h syslog.h unistd.h cairo/cairo.h pngstruct.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
@@ -12377,92 +12375,6 @@ else
 fi
 
 
-# libpng
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for png_write_png in -lpng" >&5
-$as_echo_n "checking for png_write_png in -lpng... " >&6; }
-if ${ac_cv_lib_png_png_write_png+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lpng  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char png_write_png ();
-int
-main ()
-{
-return png_write_png ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_png_png_write_png=yes
-else
-  ac_cv_lib_png_png_write_png=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_png_png_write_png" >&5
-$as_echo "$ac_cv_lib_png_png_write_png" >&6; }
-if test "x$ac_cv_lib_png_png_write_png" = xyes; then :
-  PNG_LIBS=-lpng
-else
-  as_fn_error $? "\"libpng is required for writing png messages\"" "$LINENO" 5
-fi
-
-
-# libjpeg
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for jpeg_std_error in -ljpeg" >&5
-$as_echo_n "checking for jpeg_std_error in -ljpeg... " >&6; }
-if ${ac_cv_lib_jpeg_jpeg_std_error+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-ljpeg  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char jpeg_std_error ();
-int
-main ()
-{
-return jpeg_std_error ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_jpeg_jpeg_std_error=yes
-else
-  ac_cv_lib_jpeg_jpeg_std_error=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_jpeg_jpeg_std_error" >&5
-$as_echo "$ac_cv_lib_jpeg_jpeg_std_error" >&6; }
-if test "x$ac_cv_lib_jpeg_jpeg_std_error" = xyes; then :
-  JPEG_LIBS=-ljpeg
-else
-  as_fn_error $? "\"libjpeg is required for writing jpeg messages\"" "$LINENO" 5
-fi
 
 
 # Cairo
@@ -12642,7 +12554,6 @@ fi
 
 
 
-
 # Library functions
 for ac_func in clock_gettime gettimeofday memmove memset select strdup nanosleep
 do :
@@ -12657,12 +12568,6 @@ fi
 done
 
 
-ac_fn_c_check_decl "$LINENO" "png_get_io_ptr" "ac_cv_have_decl_png_get_io_ptr" "#include <png.h>
-"
-if test "x$ac_cv_have_decl_png_get_io_ptr" = xyes; then :
-  $as_echo "@%:@define HAVE_PNG_GET_IO_PTR 1" >>confdefs.h
-
-fi
 
 
 ac_fn_c_check_decl "$LINENO" "cairo_format_stride_for_width" "ac_cv_have_decl_cairo_format_stride_for_width" "#include <cairo/cairo.h>

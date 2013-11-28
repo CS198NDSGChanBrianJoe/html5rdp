@@ -1,0 +1,159 @@
+Making install in src/libguac
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3/src/libguac'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3/src/libguac'
+test -z "/usr/local/lib" || /bin/mkdir -p "/usr/local/lib"
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   libguac.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libguac.so.5.0.0 /usr/local/lib/libguac.so.5.0.0
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac.so.5.0.0 libguac.so.5 || { rm -f libguac.so.5 && ln -s libguac.so.5.0.0 libguac.so.5; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac.so.5.0.0 libguac.so || { rm -f libguac.so && ln -s libguac.so.5.0.0 libguac.so; }; })
+libtool: install: /usr/bin/install -c .libs/libguac.lai /usr/local/lib/libguac.la
+libtool: install: /usr/bin/install -c .libs/libguac.a /usr/local/lib/libguac.a
+libtool: install: chmod 644 /usr/local/lib/libguac.a
+libtool: install: ranlib /usr/local/lib/libguac.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/usr/local/include/guacamole" || /bin/mkdir -p "/usr/local/include/guacamole"
+ /usr/bin/install -c -m 644 guacamole/audio.h guacamole/client.h guacamole/error.h guacamole/hash.h guacamole/instruction.h guacamole/layer.h guacamole/plugin.h guacamole/pool.h guacamole/protocol.h guacamole/socket.h guacamole/stream.h guacamole/timestamp.h guacamole/unicode.h '/usr/local/include/guacamole'
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/libguac'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/libguac'
+Making install in src/guacd
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3/src/guacd'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3/src/guacd'
+test -z "/usr/local/sbin" || /bin/mkdir -p "/usr/local/sbin"
+  /bin/bash ../../libtool   --mode=install /usr/bin/install -c guacd '/usr/local/sbin'
+libtool: install: /usr/bin/install -c .libs/guacd /usr/local/sbin/guacd
+test -z "" || /bin/mkdir -p ""
+test -z "/usr/local/share/man/man8" || /bin/mkdir -p "/usr/local/share/man/man8"
+ /usr/bin/install -c -m 644 man/guacd.8 '/usr/local/share/man/man8'
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/guacd'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/guacd'
+Making install in tests
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3/tests'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3/tests'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3/tests'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3/tests'
+Making install in src/protocols/rdp
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3/src/protocols/rdp'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3/src/protocols/rdp'
+test -z "/usr/local/lib" || /bin/mkdir -p "/usr/local/lib"
+ /bin/bash ../../../libtool   --mode=install /usr/bin/install -c   libguac-client-rdp.la '/usr/local/lib'
+libtool: install: (cd /home/vm/guacamole-server-0.8.3/src/protocols/rdp; /bin/bash /home/vm/guacamole-server-0.8.3/libtool  --tag CC --mode=relink gcc -std=gnu99 -Werror -Wall -Iinclude -I../../../src/libguac -g -O2 -version-info 0:0:0 -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -lcairo -o libguac-client-rdp.la -rpath /usr/local/lib audio.lo client.lo default_pointer.lo guac_handlers.lo rdp_bitmap.lo rdp_cliprdr.lo rdp_gdi.lo rdp_glyph.lo rdp_keymap_base.lo rdp_keymap.lo rdp_keymap_de_de.lo rdp_keymap_failsafe.lo rdp_keymap_fr_fr.lo rdp_keymap_en_us.lo rdp_pointer.lo rdp_settings.lo wav_encoder.lo ../../../src/libguac/libguac.la )
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/audio.o .libs/client.o .libs/default_pointer.o .libs/guac_handlers.o .libs/rdp_bitmap.o .libs/rdp_cliprdr.o .libs/rdp_gdi.o .libs/rdp_glyph.o .libs/rdp_keymap_base.o .libs/rdp_keymap.o .libs/rdp_keymap_de_de.o .libs/rdp_keymap_failsafe.o .libs/rdp_keymap_fr_fr.o .libs/rdp_keymap_en_us.o .libs/rdp_pointer.o .libs/rdp_settings.o .libs/wav_encoder.o   -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -L/usr/lib/x86_64-linux-gnu -lcairo -L/usr/local/lib -lguac  -O2   -Wl,-soname -Wl,libguac-client-rdp.so.0 -o .libs/libguac-client-rdp.so.0.0.0
+libtool: install: /usr/bin/install -c .libs/libguac-client-rdp.so.0.0.0T /usr/local/lib/libguac-client-rdp.so.0.0.0
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac-client-rdp.so.0.0.0 libguac-client-rdp.so.0 || { rm -f libguac-client-rdp.so.0 && ln -s libguac-client-rdp.so.0.0.0 libguac-client-rdp.so.0; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac-client-rdp.so.0.0.0 libguac-client-rdp.so || { rm -f libguac-client-rdp.so && ln -s libguac-client-rdp.so.0.0.0 libguac-client-rdp.so; }; })
+libtool: install: /usr/bin/install -c .libs/libguac-client-rdp.lai /usr/local/lib/libguac-client-rdp.la
+libtool: install: /usr/bin/install -c .libs/libguac-client-rdp.a /usr/local/lib/libguac-client-rdp.a
+libtool: install: chmod 644 /usr/local/lib/libguac-client-rdp.a
+libtool: install: ranlib /usr/local/lib/libguac-client-rdp.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/usr/local/lib/freerdp" || /bin/mkdir -p "/usr/local/lib/freerdp"
+ /bin/bash ../../../libtool   --mode=install /usr/bin/install -c   guacsnd-client.la guacdr-client.la '/usr/local/lib/freerdp'
+libtool: install: (cd /home/vm/guacamole-server-0.8.3/src/protocols/rdp; /bin/bash /home/vm/guacamole-server-0.8.3/libtool  --tag CC --mode=relink gcc -std=gnu99 -Werror -Wall -Iinclude -I../../../src/libguac -g -O2 -module -avoid-version -shared -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -o guacsnd-client.la -rpath /usr/local/lib/freerdp rdpsnd_messages.lo rdpsnd_service.lo audio.lo ../../../src/libguac/libguac.la )
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/rdpsnd_messages.o .libs/rdpsnd_service.o .libs/audio.o   -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -L/usr/local/lib -lguac  -O2   -Wl,-soname -Wl,guacsnd-client.so -o .libs/guacsnd-client.so
+libtool: install: /usr/bin/install -c .libs/guacsnd-client.soT /usr/local/lib/freerdp/guacsnd-client.so
+libtool: install: /usr/bin/install -c .libs/guacsnd-client.lai /usr/local/lib/freerdp/guacsnd-client.la
+libtool: install: (cd /home/vm/guacamole-server-0.8.3/src/protocols/rdp; /bin/bash /home/vm/guacamole-server-0.8.3/libtool  --tag CC --mode=relink gcc -std=gnu99 -Werror -Wall -Iinclude -I../../../src/libguac -g -O2 -module -avoid-version -shared -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -o guacdr-client.la -rpath /usr/local/lib/freerdp rdpdr_messages.lo rdpdr_printer.lo rdpdr_service.lo ../../../src/libguac/libguac.la )
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/rdpdr_messages.o .libs/rdpdr_printer.o .libs/rdpdr_service.o   -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec -lpthread -L/usr/local/lib -lguac  -O2   -Wl,-soname -Wl,guacdr-client.so -o .libs/guacdr-client.so
+libtool: install: /usr/bin/install -c .libs/guacdr-client.soT /usr/local/lib/freerdp/guacdr-client.so
+libtool: install: /usr/bin/install -c .libs/guacdr-client.lai /usr/local/lib/freerdp/guacdr-client.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/local/lib/freerdp
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib/freerdp
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/protocols/rdp'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/protocols/rdp'
+Making install in src/protocols/vnc
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3/src/protocols/vnc'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3/src/protocols/vnc'
+test -z "/usr/local/lib" || /bin/mkdir -p "/usr/local/lib"
+ /bin/bash ../../../libtool   --mode=install /usr/bin/install -c   libguac-client-vnc.la '/usr/local/lib'
+libtool: install: (cd /home/vm/guacamole-server-0.8.3/src/protocols/vnc; /bin/bash /home/vm/guacamole-server-0.8.3/libtool  --tag CC --mode=relink gcc -std=gnu99 -Werror -Wall -pedantic -Iinclude -I../../../src/libguac -g -O2 -version-info 0:0:0 -lvncclient -lcairo -o libguac-client-vnc.la -rpath /usr/local/lib client.lo convert.lo guac_handlers.lo vnc_handlers.lo ../../../src/libguac/libguac.la )
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/client.o .libs/convert.o .libs/guac_handlers.o .libs/vnc_handlers.o   -lvncclient -L/usr/lib/x86_64-linux-gnu -lcairo -L/usr/local/lib -lguac  -O2   -Wl,-soname -Wl,libguac-client-vnc.so.0 -o .libs/libguac-client-vnc.so.0.0.0
+libtool: install: /usr/bin/install -c .libs/libguac-client-vnc.so.0.0.0T /usr/local/lib/libguac-client-vnc.so.0.0.0
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac-client-vnc.so.0.0.0 libguac-client-vnc.so.0 || { rm -f libguac-client-vnc.so.0 && ln -s libguac-client-vnc.so.0.0.0 libguac-client-vnc.so.0; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libguac-client-vnc.so.0.0.0 libguac-client-vnc.so || { rm -f libguac-client-vnc.so && ln -s libguac-client-vnc.so.0.0.0 libguac-client-vnc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libguac-client-vnc.lai /usr/local/lib/libguac-client-vnc.la
+libtool: install: /usr/bin/install -c .libs/libguac-client-vnc.a /usr/local/lib/libguac-client-vnc.a
+libtool: install: chmod 644 /usr/local/lib/libguac-client-vnc.a
+libtool: install: ranlib /usr/local/lib/libguac-client-vnc.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/protocols/vnc'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3/src/protocols/vnc'
+make[1]: Entering directory `/home/vm/guacamole-server-0.8.3'
+make[2]: Entering directory `/home/vm/guacamole-server-0.8.3'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/vm/guacamole-server-0.8.3'
+make[1]: Leaving directory `/home/vm/guacamole-server-0.8.3'

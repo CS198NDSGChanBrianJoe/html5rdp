@@ -1,3 +1,611 @@
+m4trace:/usr/share/aclocal/argz.m4:12: -1- AC_DEFUN([gl_FUNC_ARGZ], [gl_PREREQ_ARGZ
+
+AC_CHECK_HEADERS([argz.h], [], [], [AC_INCLUDES_DEFAULT])
+
+AC_CHECK_TYPES([error_t],
+  [],
+  [AC_DEFINE([error_t], [int],
+   [Define to a type to use for `error_t' if it is not otherwise available.])
+   AC_DEFINE([__error_t_defined], [1], [Define so that glibc/gnulib argp.h
+    does not typedef error_t.])],
+  [#if defined(HAVE_ARGZ_H)
+#  include <argz.h>
+#endif])
+
+ARGZ_H=
+AC_CHECK_FUNCS([argz_add argz_append argz_count argz_create_sep argz_insert \
+	argz_next argz_stringify], [], [ARGZ_H=argz.h; AC_LIBOBJ([argz])])
+
+dnl if have system argz functions, allow forced use of
+dnl libltdl-supplied implementation (and default to do so
+dnl on "known bad" systems). Could use a runtime check, but
+dnl (a) detecting malloc issues is notoriously unreliable
+dnl (b) only known system that declares argz functions,
+dnl     provides them, yet they are broken, is cygwin
+dnl     releases prior to 16-Mar-2007 (1.5.24 and earlier)
+dnl So, it's more straightforward simply to special case
+dnl this for known bad systems.
+AS_IF([test -z "$ARGZ_H"],
+    [AC_CACHE_CHECK(
+        [if argz actually works],
+        [lt_cv_sys_argz_works],
+        [[case $host_os in #(
+	 *cygwin*)
+	   lt_cv_sys_argz_works=no
+	   if test "$cross_compiling" != no; then
+	     lt_cv_sys_argz_works="guessing no"
+	   else
+	     lt_sed_extract_leading_digits='s/^\([0-9\.]*\).*/\1/'
+	     save_IFS=$IFS
+	     IFS=-.
+	     set x `uname -r | sed -e "$lt_sed_extract_leading_digits"`
+	     IFS=$save_IFS
+	     lt_os_major=${2-0}
+	     lt_os_minor=${3-0}
+	     lt_os_micro=${4-0}
+	     if test "$lt_os_major" -gt 1 \
+		|| { test "$lt_os_major" -eq 1 \
+		  && { test "$lt_os_minor" -gt 5 \
+		    || { test "$lt_os_minor" -eq 5 \
+		      && test "$lt_os_micro" -gt 24; }; }; }; then
+	       lt_cv_sys_argz_works=yes
+	     fi
+	   fi
+	   ;; #(
+	 *) lt_cv_sys_argz_works=yes ;;
+	 esac]])
+     AS_IF([test "$lt_cv_sys_argz_works" = yes],
+        [AC_DEFINE([HAVE_WORKING_ARGZ], 1,
+                   [This value is set to 1 to indicate that the system argz facility works])],
+        [ARGZ_H=argz.h
+        AC_LIBOBJ([argz])])])
+
+AC_SUBST([ARGZ_H])
+])
+m4trace:/usr/share/aclocal/argz.m4:79: -1- AC_DEFUN([gl_PREREQ_ARGZ], [:])
+m4trace:/usr/share/aclocal/ltdl.m4:16: -1- AC_DEFUN([LT_CONFIG_LTDL_DIR], [AC_BEFORE([$0], [LTDL_INIT])
+_$0($*)
+])
+m4trace:/usr/share/aclocal/ltdl.m4:68: -1- AC_DEFUN([LTDL_CONVENIENCE], [AC_BEFORE([$0], [LTDL_INIT])dnl
+dnl Although the argument is deprecated and no longer documented,
+dnl LTDL_CONVENIENCE used to take a DIRECTORY orgument, if we have one
+dnl here make sure it is the same as any other declaration of libltdl's
+dnl location!  This also ensures lt_ltdl_dir is set when configure.ac is
+dnl not yet using an explicit LT_CONFIG_LTDL_DIR.
+m4_ifval([$1], [_LT_CONFIG_LTDL_DIR([$1])])dnl
+_$0()
+])
+m4trace:/usr/share/aclocal/ltdl.m4:81: -1- AU_DEFUN([AC_LIBLTDL_CONVENIENCE], [_LT_CONFIG_LTDL_DIR([m4_default([$1], [libltdl])])
+_LTDL_CONVENIENCE])
+m4trace:/usr/share/aclocal/ltdl.m4:81: -1- AC_DEFUN([AC_LIBLTDL_CONVENIENCE], [AC_DIAGNOSE([obsolete], [The macro `AC_LIBLTDL_CONVENIENCE' is obsolete.
+You should run autoupdate.])dnl
+_LT_CONFIG_LTDL_DIR([m4_default([$1], [libltdl])])
+_LTDL_CONVENIENCE])
+m4trace:/usr/share/aclocal/ltdl.m4:124: -1- AC_DEFUN([LTDL_INSTALLABLE], [AC_BEFORE([$0], [LTDL_INIT])dnl
+dnl Although the argument is deprecated and no longer documented,
+dnl LTDL_INSTALLABLE used to take a DIRECTORY orgument, if we have one
+dnl here make sure it is the same as any other declaration of libltdl's
+dnl location!  This also ensures lt_ltdl_dir is set when configure.ac is
+dnl not yet using an explicit LT_CONFIG_LTDL_DIR.
+m4_ifval([$1], [_LT_CONFIG_LTDL_DIR([$1])])dnl
+_$0()
+])
+m4trace:/usr/share/aclocal/ltdl.m4:137: -1- AU_DEFUN([AC_LIBLTDL_INSTALLABLE], [_LT_CONFIG_LTDL_DIR([m4_default([$1], [libltdl])])
+_LTDL_INSTALLABLE])
+m4trace:/usr/share/aclocal/ltdl.m4:137: -1- AC_DEFUN([AC_LIBLTDL_INSTALLABLE], [AC_DIAGNOSE([obsolete], [The macro `AC_LIBLTDL_INSTALLABLE' is obsolete.
+You should run autoupdate.])dnl
+_LT_CONFIG_LTDL_DIR([m4_default([$1], [libltdl])])
+_LTDL_INSTALLABLE])
+m4trace:/usr/share/aclocal/ltdl.m4:213: -1- AC_DEFUN([_LT_LIBOBJ], [
+  m4_pattern_allow([^_LT_LIBOBJS$])
+  _LT_LIBOBJS="$_LT_LIBOBJS $1.$ac_objext"
+])
+m4trace:/usr/share/aclocal/ltdl.m4:226: -1- AC_DEFUN([LTDL_INIT], [dnl Parse OPTIONS
+_LT_SET_OPTIONS([$0], [$1])
+
+dnl We need to keep our own list of libobjs separate from our parent project,
+dnl and the easiest way to do that is redefine the AC_LIBOBJs macro while
+dnl we look for our own LIBOBJs.
+m4_pushdef([AC_LIBOBJ], m4_defn([_LT_LIBOBJ]))
+m4_pushdef([AC_LIBSOURCES])
+
+dnl If not otherwise defined, default to the 1.5.x compatible subproject mode:
+m4_if(_LTDL_MODE, [],
+        [m4_define([_LTDL_MODE], m4_default([$2], [subproject]))
+        m4_if([-1], [m4_bregexp(_LTDL_MODE, [\(subproject\|\(non\)?recursive\)])],
+                [m4_fatal([unknown libltdl mode: ]_LTDL_MODE)])])
+
+AC_ARG_WITH([included_ltdl],
+    [AS_HELP_STRING([--with-included-ltdl],
+                    [use the GNU ltdl sources included here])])
+
+if test "x$with_included_ltdl" != xyes; then
+  # We are not being forced to use the included libltdl sources, so
+  # decide whether there is a useful installed version we can use.
+  AC_CHECK_HEADER([ltdl.h],
+      [AC_CHECK_DECL([lt_dlinterface_register],
+	   [AC_CHECK_LIB([ltdl], [lt_dladvise_preload],
+	       [with_included_ltdl=no],
+	       [with_included_ltdl=yes])],
+	   [with_included_ltdl=yes],
+	   [AC_INCLUDES_DEFAULT
+	    #include <ltdl.h>])],
+      [with_included_ltdl=yes],
+      [AC_INCLUDES_DEFAULT]
+  )
+fi
+
+dnl If neither LT_CONFIG_LTDL_DIR, LTDL_CONVENIENCE nor LTDL_INSTALLABLE
+dnl was called yet, then for old times' sake, we assume libltdl is in an
+dnl eponymous directory:
+AC_PROVIDE_IFELSE([LT_CONFIG_LTDL_DIR], [], [_LT_CONFIG_LTDL_DIR([libltdl])])
+
+AC_ARG_WITH([ltdl_include],
+    [AS_HELP_STRING([--with-ltdl-include=DIR],
+                    [use the ltdl headers installed in DIR])])
+
+if test -n "$with_ltdl_include"; then
+  if test -f "$with_ltdl_include/ltdl.h"; then :
+  else
+    AC_MSG_ERROR([invalid ltdl include directory: `$with_ltdl_include'])
+  fi
+else
+  with_ltdl_include=no
+fi
+
+AC_ARG_WITH([ltdl_lib],
+    [AS_HELP_STRING([--with-ltdl-lib=DIR],
+                    [use the libltdl.la installed in DIR])])
+
+if test -n "$with_ltdl_lib"; then
+  if test -f "$with_ltdl_lib/libltdl.la"; then :
+  else
+    AC_MSG_ERROR([invalid ltdl library directory: `$with_ltdl_lib'])
+  fi
+else
+  with_ltdl_lib=no
+fi
+
+case ,$with_included_ltdl,$with_ltdl_include,$with_ltdl_lib, in
+  ,yes,no,no,)
+	m4_case(m4_default(_LTDL_TYPE, [convenience]),
+	    [convenience], [_LTDL_CONVENIENCE],
+	    [installable], [_LTDL_INSTALLABLE],
+	  [m4_fatal([unknown libltdl build type: ]_LTDL_TYPE)])
+	;;
+  ,no,no,no,)
+	# If the included ltdl is not to be used, then use the
+	# preinstalled libltdl we found.
+	AC_DEFINE([HAVE_LTDL], [1],
+	  [Define this if a modern libltdl is already installed])
+	LIBLTDL=-lltdl
+	LTDLDEPS=
+	LTDLINCL=
+	;;
+  ,no*,no,*)
+	AC_MSG_ERROR([`--with-ltdl-include' and `--with-ltdl-lib' options must be used together])
+	;;
+  *)	with_included_ltdl=no
+	LIBLTDL="-L$with_ltdl_lib -lltdl"
+	LTDLDEPS=
+	LTDLINCL="-I$with_ltdl_include"
+	;;
+esac
+INCLTDL="$LTDLINCL"
+
+# Report our decision...
+AC_MSG_CHECKING([where to find libltdl headers])
+AC_MSG_RESULT([$LTDLINCL])
+AC_MSG_CHECKING([where to find libltdl library])
+AC_MSG_RESULT([$LIBLTDL])
+
+_LTDL_SETUP
+
+dnl restore autoconf definition.
+m4_popdef([AC_LIBOBJ])
+m4_popdef([AC_LIBSOURCES])
+
+AC_CONFIG_COMMANDS_PRE([
+    _ltdl_libobjs=
+    _ltdl_ltlibobjs=
+    if test -n "$_LT_LIBOBJS"; then
+      # Remove the extension.
+      _lt_sed_drop_objext='s/\.o$//;s/\.obj$//'
+      for i in `for i in $_LT_LIBOBJS; do echo "$i"; done | sed "$_lt_sed_drop_objext" | sort -u`; do
+        _ltdl_libobjs="$_ltdl_libobjs $lt_libobj_prefix$i.$ac_objext"
+        _ltdl_ltlibobjs="$_ltdl_ltlibobjs $lt_libobj_prefix$i.lo"
+      done
+    fi
+    AC_SUBST([ltdl_LIBOBJS], [$_ltdl_libobjs])
+    AC_SUBST([ltdl_LTLIBOBJS], [$_ltdl_ltlibobjs])
+])
+
+# Only expand once:
+m4_define([LTDL_INIT])
+])
+m4trace:/usr/share/aclocal/ltdl.m4:352: -1- AU_DEFUN([AC_LIB_LTDL], [LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:352: -1- AC_DEFUN([AC_LIB_LTDL], [AC_DIAGNOSE([obsolete], [The macro `AC_LIB_LTDL' is obsolete.
+You should run autoupdate.])dnl
+LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:353: -1- AU_DEFUN([AC_WITH_LTDL], [LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:353: -1- AC_DEFUN([AC_WITH_LTDL], [AC_DIAGNOSE([obsolete], [The macro `AC_WITH_LTDL' is obsolete.
+You should run autoupdate.])dnl
+LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:354: -1- AU_DEFUN([LT_WITH_LTDL], [LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:354: -1- AC_DEFUN([LT_WITH_LTDL], [AC_DIAGNOSE([obsolete], [The macro `LT_WITH_LTDL' is obsolete.
+You should run autoupdate.])dnl
+LTDL_INIT($@)])
+m4trace:/usr/share/aclocal/ltdl.m4:367: -1- AC_DEFUN([_LTDL_SETUP], [AC_REQUIRE([AC_PROG_CC])dnl
+AC_REQUIRE([LT_SYS_MODULE_EXT])dnl
+AC_REQUIRE([LT_SYS_MODULE_PATH])dnl
+AC_REQUIRE([LT_SYS_DLSEARCH_PATH])dnl
+AC_REQUIRE([LT_LIB_DLLOAD])dnl
+AC_REQUIRE([LT_SYS_SYMBOL_USCORE])dnl
+AC_REQUIRE([LT_FUNC_DLSYM_USCORE])dnl
+AC_REQUIRE([LT_SYS_DLOPEN_DEPLIBS])dnl
+AC_REQUIRE([gl_FUNC_ARGZ])dnl
+
+m4_require([_LT_CHECK_OBJDIR])dnl
+m4_require([_LT_HEADER_DLFCN])dnl
+m4_require([_LT_CHECK_DLPREOPEN])dnl
+m4_require([_LT_DECL_SED])dnl
+
+dnl Don't require this, or it will be expanded earlier than the code
+dnl that sets the variables it relies on:
+_LT_ENABLE_INSTALL
+
+dnl _LTDL_MODE specific code must be called at least once:
+_LTDL_MODE_DISPATCH
+
+# In order that ltdl.c can compile, find out the first AC_CONFIG_HEADERS
+# the user used.  This is so that ltdl.h can pick up the parent projects
+# config.h file, The first file in AC_CONFIG_HEADERS must contain the
+# definitions required by ltdl.c.
+# FIXME: Remove use of undocumented AC_LIST_HEADERS (2.59 compatibility).
+AC_CONFIG_COMMANDS_PRE([dnl
+m4_pattern_allow([^LT_CONFIG_H$])dnl
+m4_ifset([AH_HEADER],
+    [LT_CONFIG_H=AH_HEADER],
+    [m4_ifset([AC_LIST_HEADERS],
+	    [LT_CONFIG_H=`echo "AC_LIST_HEADERS" | $SED 's,^[[      ]]*,,;s,[[ :]].*$,,'`],
+	[])])])
+AC_SUBST([LT_CONFIG_H])
+
+AC_CHECK_HEADERS([unistd.h dl.h sys/dl.h dld.h mach-o/dyld.h dirent.h],
+	[], [], [AC_INCLUDES_DEFAULT])
+
+AC_CHECK_FUNCS([closedir opendir readdir], [], [AC_LIBOBJ([lt__dirent])])
+AC_CHECK_FUNCS([strlcat strlcpy], [], [AC_LIBOBJ([lt__strl])])
+
+m4_pattern_allow([LT_LIBEXT])dnl
+AC_DEFINE_UNQUOTED([LT_LIBEXT],["$libext"],[The archive extension])
+
+name=
+eval "lt_libprefix=\"$libname_spec\""
+m4_pattern_allow([LT_LIBPREFIX])dnl
+AC_DEFINE_UNQUOTED([LT_LIBPREFIX],["$lt_libprefix"],[The archive prefix])
+
+name=ltdl
+eval "LTDLOPEN=\"$libname_spec\""
+AC_SUBST([LTDLOPEN])
+])
+m4trace:/usr/share/aclocal/ltdl.m4:443: -1- AC_DEFUN([LT_SYS_DLOPEN_DEPLIBS], [AC_REQUIRE([AC_CANONICAL_HOST])dnl
+AC_CACHE_CHECK([whether deplibs are loaded by dlopen],
+  [lt_cv_sys_dlopen_deplibs],
+  [# PORTME does your system automatically load deplibs for dlopen?
+  # or its logical equivalent (e.g. shl_load for HP-UX < 11)
+  # For now, we just catch OSes we know something about -- in the
+  # future, we'll try test this programmatically.
+  lt_cv_sys_dlopen_deplibs=unknown
+  case $host_os in
+  aix3*|aix4.1.*|aix4.2.*)
+    # Unknown whether this is true for these versions of AIX, but
+    # we want this `case' here to explicitly catch those versions.
+    lt_cv_sys_dlopen_deplibs=unknown
+    ;;
+  aix[[4-9]]*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  amigaos*)
+    case $host_cpu in
+    powerpc)
+      lt_cv_sys_dlopen_deplibs=no
+      ;;
+    esac
+    ;;
+  darwin*)
+    # Assuming the user has installed a libdl from somewhere, this is true
+    # If you are looking for one http://www.opendarwin.org/projects/dlcompat
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  freebsd* | dragonfly*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  gnu* | linux* | k*bsd*-gnu | kopensolaris*-gnu)
+    # GNU and its variants, using gnu ld.so (Glibc)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  hpux10*|hpux11*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  interix*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  irix[[12345]]*|irix6.[[01]]*)
+    # Catch all versions of IRIX before 6.2, and indicate that we don't
+    # know how it worked for any of those versions.
+    lt_cv_sys_dlopen_deplibs=unknown
+    ;;
+  irix*)
+    # The case above catches anything before 6.2, and it's known that
+    # at 6.2 and later dlopen does load deplibs.
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  netbsd* | netbsdelf*-gnu)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  openbsd*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  osf[[1234]]*)
+    # dlopen did load deplibs (at least at 4.x), but until the 5.x series,
+    # it did *not* use an RPATH in a shared library to find objects the
+    # library depends on, so we explicitly say `no'.
+    lt_cv_sys_dlopen_deplibs=no
+    ;;
+  osf5.0|osf5.0a|osf5.1)
+    # dlopen *does* load deplibs and with the right loader patch applied
+    # it even uses RPATH in a shared library to search for shared objects
+    # that the library depends on, but there's no easy way to know if that
+    # patch is installed.  Since this is the case, all we can really
+    # say is unknown -- it depends on the patch being installed.  If
+    # it is, this changes to `yes'.  Without it, it would be `no'.
+    lt_cv_sys_dlopen_deplibs=unknown
+    ;;
+  osf*)
+    # the two cases above should catch all versions of osf <= 5.1.  Read
+    # the comments above for what we know about them.
+    # At > 5.1, deplibs are loaded *and* any RPATH in a shared library
+    # is used to find them so we can finally say `yes'.
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  qnx*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  solaris*)
+    lt_cv_sys_dlopen_deplibs=yes
+    ;;
+  sysv5* | sco3.2v5* | sco5v6* | unixware* | OpenUNIX* | sysv4*uw2*)
+    libltdl_cv_sys_dlopen_deplibs=yes
+    ;;
+  esac
+  ])
+if test "$lt_cv_sys_dlopen_deplibs" != yes; then
+ AC_DEFINE([LTDL_DLOPEN_DEPLIBS], [1],
+    [Define if the OS needs help to load dependent libraries for dlopen().])
+fi
+])
+m4trace:/usr/share/aclocal/ltdl.m4:542: -1- AU_DEFUN([AC_LTDL_SYS_DLOPEN_DEPLIBS], [m4_if($#, 0, [LT_SYS_DLOPEN_DEPLIBS], [LT_SYS_DLOPEN_DEPLIBS($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:542: -1- AC_DEFUN([AC_LTDL_SYS_DLOPEN_DEPLIBS], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_SYS_DLOPEN_DEPLIBS' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_SYS_DLOPEN_DEPLIBS], [LT_SYS_DLOPEN_DEPLIBS($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:549: -1- AC_DEFUN([LT_SYS_MODULE_EXT], [m4_require([_LT_SYS_DYNAMIC_LINKER])dnl
+AC_CACHE_CHECK([which extension is used for runtime loadable modules],
+  [libltdl_cv_shlibext],
+[
+module=yes
+eval libltdl_cv_shlibext=$shrext_cmds
+module=no
+eval libltdl_cv_shrext=$shrext_cmds
+  ])
+if test -n "$libltdl_cv_shlibext"; then
+  m4_pattern_allow([LT_MODULE_EXT])dnl
+  AC_DEFINE_UNQUOTED([LT_MODULE_EXT], ["$libltdl_cv_shlibext"],
+    [Define to the extension used for runtime loadable modules, say, ".so".])
+fi
+if test "$libltdl_cv_shrext" != "$libltdl_cv_shlibext"; then
+  m4_pattern_allow([LT_SHARED_EXT])dnl
+  AC_DEFINE_UNQUOTED([LT_SHARED_EXT], ["$libltdl_cv_shrext"],
+    [Define to the shared library suffix, say, ".dylib".])
+fi
+])
+m4trace:/usr/share/aclocal/ltdl.m4:572: -1- AU_DEFUN([AC_LTDL_SHLIBEXT], [m4_if($#, 0, [LT_SYS_MODULE_EXT], [LT_SYS_MODULE_EXT($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:572: -1- AC_DEFUN([AC_LTDL_SHLIBEXT], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_SHLIBEXT' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_SYS_MODULE_EXT], [LT_SYS_MODULE_EXT($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:579: -1- AC_DEFUN([LT_SYS_MODULE_PATH], [m4_require([_LT_SYS_DYNAMIC_LINKER])dnl
+AC_CACHE_CHECK([which variable specifies run-time module search path],
+  [lt_cv_module_path_var], [lt_cv_module_path_var="$shlibpath_var"])
+if test -n "$lt_cv_module_path_var"; then
+  m4_pattern_allow([LT_MODULE_PATH_VAR])dnl
+  AC_DEFINE_UNQUOTED([LT_MODULE_PATH_VAR], ["$lt_cv_module_path_var"],
+    [Define to the name of the environment variable that determines the run-time module search path.])
+fi
+])
+m4trace:/usr/share/aclocal/ltdl.m4:591: -1- AU_DEFUN([AC_LTDL_SHLIBPATH], [m4_if($#, 0, [LT_SYS_MODULE_PATH], [LT_SYS_MODULE_PATH($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:591: -1- AC_DEFUN([AC_LTDL_SHLIBPATH], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_SHLIBPATH' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_SYS_MODULE_PATH], [LT_SYS_MODULE_PATH($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:598: -1- AC_DEFUN([LT_SYS_DLSEARCH_PATH], [m4_require([_LT_SYS_DYNAMIC_LINKER])dnl
+AC_CACHE_CHECK([for the default library search path],
+  [lt_cv_sys_dlsearch_path],
+  [lt_cv_sys_dlsearch_path="$sys_lib_dlsearch_path_spec"])
+if test -n "$lt_cv_sys_dlsearch_path"; then
+  sys_dlsearch_path=
+  for dir in $lt_cv_sys_dlsearch_path; do
+    if test -z "$sys_dlsearch_path"; then
+      sys_dlsearch_path="$dir"
+    else
+      sys_dlsearch_path="$sys_dlsearch_path$PATH_SEPARATOR$dir"
+    fi
+  done
+  m4_pattern_allow([LT_DLSEARCH_PATH])dnl
+  AC_DEFINE_UNQUOTED([LT_DLSEARCH_PATH], ["$sys_dlsearch_path"],
+    [Define to the system default library search path.])
+fi
+])
+m4trace:/usr/share/aclocal/ltdl.m4:619: -1- AU_DEFUN([AC_LTDL_SYSSEARCHPATH], [m4_if($#, 0, [LT_SYS_DLSEARCH_PATH], [LT_SYS_DLSEARCH_PATH($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:619: -1- AC_DEFUN([AC_LTDL_SYSSEARCHPATH], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_SYSSEARCHPATH' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_SYS_DLSEARCH_PATH], [LT_SYS_DLSEARCH_PATH($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:645: -1- AC_DEFUN([LT_LIB_DLLOAD], [m4_pattern_allow([^LT_DLLOADERS$])
+LT_DLLOADERS=
+AC_SUBST([LT_DLLOADERS])
+
+AC_LANG_PUSH([C])
+
+LIBADD_DLOPEN=
+AC_SEARCH_LIBS([dlopen], [dl],
+	[AC_DEFINE([HAVE_LIBDL], [1],
+		   [Define if you have the libdl library or equivalent.])
+	if test "$ac_cv_search_dlopen" != "none required" ; then
+	  LIBADD_DLOPEN="-ldl"
+	fi
+	libltdl_cv_lib_dl_dlopen="yes"
+	LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}dlopen.la"],
+    [AC_LINK_IFELSE([AC_LANG_PROGRAM([[#if HAVE_DLFCN_H
+#  include <dlfcn.h>
+#endif
+    ]], [[dlopen(0, 0);]])],
+	    [AC_DEFINE([HAVE_LIBDL], [1],
+		       [Define if you have the libdl library or equivalent.])
+	    libltdl_cv_func_dlopen="yes"
+	    LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}dlopen.la"],
+	[AC_CHECK_LIB([svld], [dlopen],
+		[AC_DEFINE([HAVE_LIBDL], [1],
+			 [Define if you have the libdl library or equivalent.])
+	        LIBADD_DLOPEN="-lsvld" libltdl_cv_func_dlopen="yes"
+		LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}dlopen.la"])])])
+if test x"$libltdl_cv_func_dlopen" = xyes || test x"$libltdl_cv_lib_dl_dlopen" = xyes
+then
+  lt_save_LIBS="$LIBS"
+  LIBS="$LIBS $LIBADD_DLOPEN"
+  AC_CHECK_FUNCS([dlerror])
+  LIBS="$lt_save_LIBS"
+fi
+AC_SUBST([LIBADD_DLOPEN])
+
+LIBADD_SHL_LOAD=
+AC_CHECK_FUNC([shl_load],
+	[AC_DEFINE([HAVE_SHL_LOAD], [1],
+		   [Define if you have the shl_load function.])
+	LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}shl_load.la"],
+    [AC_CHECK_LIB([dld], [shl_load],
+	    [AC_DEFINE([HAVE_SHL_LOAD], [1],
+		       [Define if you have the shl_load function.])
+	    LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}shl_load.la"
+	    LIBADD_SHL_LOAD="-ldld"])])
+AC_SUBST([LIBADD_SHL_LOAD])
+
+case $host_os in
+darwin[[1567]].*)
+# We only want this for pre-Mac OS X 10.4.
+  AC_CHECK_FUNC([_dyld_func_lookup],
+	[AC_DEFINE([HAVE_DYLD], [1],
+		   [Define if you have the _dyld_func_lookup function.])
+	LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}dyld.la"])
+  ;;
+beos*)
+  LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}load_add_on.la"
+  ;;
+cygwin* | mingw* | os2* | pw32*)
+  AC_CHECK_DECLS([cygwin_conv_path], [], [], [[#include <sys/cygwin.h>]])
+  LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}loadlibrary.la"
+  ;;
+esac
+
+AC_CHECK_LIB([dld], [dld_link],
+	[AC_DEFINE([HAVE_DLD], [1],
+		   [Define if you have the GNU dld library.])
+		LT_DLLOADERS="$LT_DLLOADERS ${lt_dlopen_dir+$lt_dlopen_dir/}dld_link.la"])
+AC_SUBST([LIBADD_DLD_LINK])
+
+m4_pattern_allow([^LT_DLPREOPEN$])
+LT_DLPREOPEN=
+if test -n "$LT_DLLOADERS"
+then
+  for lt_loader in $LT_DLLOADERS; do
+    LT_DLPREOPEN="$LT_DLPREOPEN-dlpreopen $lt_loader "
+  done
+  AC_DEFINE([HAVE_LIBDLLOADER], [1],
+            [Define if libdlloader will be built on this platform])
+fi
+AC_SUBST([LT_DLPREOPEN])
+
+dnl This isn't used anymore, but set it for backwards compatibility
+LIBADD_DL="$LIBADD_DLOPEN $LIBADD_SHL_LOAD"
+AC_SUBST([LIBADD_DL])
+
+AC_LANG_POP
+])
+m4trace:/usr/share/aclocal/ltdl.m4:738: -1- AU_DEFUN([AC_LTDL_DLLIB], [m4_if($#, 0, [LT_LIB_DLLOAD], [LT_LIB_DLLOAD($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:738: -1- AC_DEFUN([AC_LTDL_DLLIB], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_DLLIB' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_LIB_DLLOAD], [LT_LIB_DLLOAD($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:746: -1- AC_DEFUN([LT_SYS_SYMBOL_USCORE], [m4_require([_LT_CMD_GLOBAL_SYMBOLS])dnl
+AC_CACHE_CHECK([for _ prefix in compiled symbols],
+  [lt_cv_sys_symbol_underscore],
+  [lt_cv_sys_symbol_underscore=no
+  cat > conftest.$ac_ext <<_LT_EOF
+void nm_test_func(){}
+int main(){nm_test_func;return 0;}
+_LT_EOF
+  if AC_TRY_EVAL(ac_compile); then
+    # Now try to grab the symbols.
+    ac_nlist=conftest.nm
+    if AC_TRY_EVAL(NM conftest.$ac_objext \| $lt_cv_sys_global_symbol_pipe \> $ac_nlist) && test -s "$ac_nlist"; then
+      # See whether the symbols have a leading underscore.
+      if grep '^. _nm_test_func' "$ac_nlist" >/dev/null; then
+        lt_cv_sys_symbol_underscore=yes
+      else
+        if grep '^. nm_test_func ' "$ac_nlist" >/dev/null; then
+	  :
+        else
+	  echo "configure: cannot find nm_test_func in $ac_nlist" >&AS_MESSAGE_LOG_FD
+        fi
+      fi
+    else
+      echo "configure: cannot run $lt_cv_sys_global_symbol_pipe" >&AS_MESSAGE_LOG_FD
+    fi
+  else
+    echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
+    cat conftest.c >&AS_MESSAGE_LOG_FD
+  fi
+  rm -rf conftest*
+  ])
+  sys_symbol_underscore=$lt_cv_sys_symbol_underscore
+  AC_SUBST([sys_symbol_underscore])
+])
+m4trace:/usr/share/aclocal/ltdl.m4:783: -1- AU_DEFUN([AC_LTDL_SYMBOL_USCORE], [m4_if($#, 0, [LT_SYS_SYMBOL_USCORE], [LT_SYS_SYMBOL_USCORE($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:783: -1- AC_DEFUN([AC_LTDL_SYMBOL_USCORE], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_SYMBOL_USCORE' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_SYS_SYMBOL_USCORE], [LT_SYS_SYMBOL_USCORE($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:790: -1- AC_DEFUN([LT_FUNC_DLSYM_USCORE], [AC_REQUIRE([LT_SYS_SYMBOL_USCORE])dnl
+if test x"$lt_cv_sys_symbol_underscore" = xyes; then
+  if test x"$libltdl_cv_func_dlopen" = xyes ||
+     test x"$libltdl_cv_lib_dl_dlopen" = xyes ; then
+	AC_CACHE_CHECK([whether we have to add an underscore for dlsym],
+	  [libltdl_cv_need_uscore],
+	  [libltdl_cv_need_uscore=unknown
+          save_LIBS="$LIBS"
+          LIBS="$LIBS $LIBADD_DLOPEN"
+	  _LT_TRY_DLOPEN_SELF(
+	    [libltdl_cv_need_uscore=no], [libltdl_cv_need_uscore=yes],
+	    [],				 [libltdl_cv_need_uscore=cross])
+	  LIBS="$save_LIBS"
+	])
+  fi
+fi
+
+if test x"$libltdl_cv_need_uscore" = xyes; then
+  AC_DEFINE([NEED_USCORE], [1],
+    [Define if dlsym() requires a leading underscore in symbol names.])
+fi
+])
+m4trace:/usr/share/aclocal/ltdl.m4:815: -1- AU_DEFUN([AC_LTDL_DLSYM_USCORE], [m4_if($#, 0, [LT_FUNC_DLSYM_USCORE], [LT_FUNC_DLSYM_USCORE($@)])])
+m4trace:/usr/share/aclocal/ltdl.m4:815: -1- AC_DEFUN([AC_LTDL_DLSYM_USCORE], [AC_DIAGNOSE([obsolete], [The macro `AC_LTDL_DLSYM_USCORE' is obsolete.
+You should run autoupdate.])dnl
+m4_if($#, 0, [LT_FUNC_DLSYM_USCORE], [LT_FUNC_DLSYM_USCORE($@)])])
 m4trace:/usr/share/aclocal/pkg.m4:27: -1- AC_DEFUN([PKG_PROG_PKG_CONFIG], [m4_pattern_forbid([^_?PKG_[A-Z_]+$])
 m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
 m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
@@ -1237,7 +1845,7 @@ m4trace:m4/libtool.m4:1961: -1- AU_DEFUN([AC_LIBTOOL_DLOPEN_SELF], [m4_if($#, 0,
 m4trace:m4/libtool.m4:1961: -1- AC_DEFUN([AC_LIBTOOL_DLOPEN_SELF], [AC_DIAGNOSE([obsolete], [The macro `AC_LIBTOOL_DLOPEN_SELF' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_SYS_DLOPEN_SELF], [LT_SYS_DLOPEN_SELF($@)])])
-m4trace:m4/libtool.m4:2931: -1- AC_DEFUN([_LT_PATH_TOOL_PREFIX], [m4_require([_LT_DECL_EGREP])dnl
+m4trace:m4/libtool.m4:2942: -1- AC_DEFUN([_LT_PATH_TOOL_PREFIX], [m4_require([_LT_DECL_EGREP])dnl
 AC_MSG_CHECKING([for $1])
 AC_CACHE_VAL(lt_cv_path_MAGIC_CMD,
 [case $MAGIC_CMD in
@@ -1296,11 +1904,11 @@ fi
 _LT_DECL([], [MAGIC_CMD], [0],
 	 [Used to examine libraries when file_magic_cmd begins with "file"])dnl
 ])
-m4trace:m4/libtool.m4:2993: -1- AU_DEFUN([AC_PATH_TOOL_PREFIX], [m4_if($#, 0, [_LT_PATH_TOOL_PREFIX], [_LT_PATH_TOOL_PREFIX($@)])])
-m4trace:m4/libtool.m4:2993: -1- AC_DEFUN([AC_PATH_TOOL_PREFIX], [AC_DIAGNOSE([obsolete], [The macro `AC_PATH_TOOL_PREFIX' is obsolete.
+m4trace:m4/libtool.m4:3004: -1- AU_DEFUN([AC_PATH_TOOL_PREFIX], [m4_if($#, 0, [_LT_PATH_TOOL_PREFIX], [_LT_PATH_TOOL_PREFIX($@)])])
+m4trace:m4/libtool.m4:3004: -1- AC_DEFUN([AC_PATH_TOOL_PREFIX], [AC_DIAGNOSE([obsolete], [The macro `AC_PATH_TOOL_PREFIX' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [_LT_PATH_TOOL_PREFIX], [_LT_PATH_TOOL_PREFIX($@)])])
-m4trace:m4/libtool.m4:3016: -1- AC_DEFUN([LT_PATH_LD], [AC_REQUIRE([AC_PROG_CC])dnl
+m4trace:m4/libtool.m4:3027: -1- AC_DEFUN([LT_PATH_LD], [AC_REQUIRE([AC_PROG_CC])dnl
 AC_REQUIRE([AC_CANONICAL_HOST])dnl
 AC_REQUIRE([AC_CANONICAL_BUILD])dnl
 m4_require([_LT_DECL_SED])dnl
@@ -1386,15 +1994,15 @@ AC_SUBST([LD])
 
 _LT_TAGDECL([], [LD], [1], [The linker used to build libraries])
 ])
-m4trace:m4/libtool.m4:3105: -1- AU_DEFUN([AM_PROG_LD], [m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
-m4trace:m4/libtool.m4:3105: -1- AC_DEFUN([AM_PROG_LD], [AC_DIAGNOSE([obsolete], [The macro `AM_PROG_LD' is obsolete.
+m4trace:m4/libtool.m4:3116: -1- AU_DEFUN([AM_PROG_LD], [m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
+m4trace:m4/libtool.m4:3116: -1- AC_DEFUN([AM_PROG_LD], [AC_DIAGNOSE([obsolete], [The macro `AM_PROG_LD' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
-m4trace:m4/libtool.m4:3106: -1- AU_DEFUN([AC_PROG_LD], [m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
-m4trace:m4/libtool.m4:3106: -1- AC_DEFUN([AC_PROG_LD], [AC_DIAGNOSE([obsolete], [The macro `AC_PROG_LD' is obsolete.
+m4trace:m4/libtool.m4:3117: -1- AU_DEFUN([AC_PROG_LD], [m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
+m4trace:m4/libtool.m4:3117: -1- AC_DEFUN([AC_PROG_LD], [AC_DIAGNOSE([obsolete], [The macro `AC_PROG_LD' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PATH_LD], [LT_PATH_LD($@)])])
-m4trace:m4/libtool.m4:3396: -1- AC_DEFUN([LT_PATH_NM], [AC_REQUIRE([AC_PROG_CC])dnl
+m4trace:m4/libtool.m4:3411: -1- AC_DEFUN([LT_PATH_NM], [AC_REQUIRE([AC_PROG_CC])dnl
 AC_CACHE_CHECK([for BSD- or MS-compatible name lister (nm)], lt_cv_path_NM,
 [if test -n "$NM"; then
   # Let the user override the test.
@@ -1481,15 +2089,15 @@ AC_CACHE_CHECK([the name lister ($NM) interface], [lt_cv_nm_interface],
   fi
   rm -f conftest*])
 ])
-m4trace:m4/libtool.m4:3486: -1- AU_DEFUN([AM_PROG_NM], [m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
-m4trace:m4/libtool.m4:3486: -1- AC_DEFUN([AM_PROG_NM], [AC_DIAGNOSE([obsolete], [The macro `AM_PROG_NM' is obsolete.
+m4trace:m4/libtool.m4:3501: -1- AU_DEFUN([AM_PROG_NM], [m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
+m4trace:m4/libtool.m4:3501: -1- AC_DEFUN([AM_PROG_NM], [AC_DIAGNOSE([obsolete], [The macro `AM_PROG_NM' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
-m4trace:m4/libtool.m4:3487: -1- AU_DEFUN([AC_PROG_NM], [m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
-m4trace:m4/libtool.m4:3487: -1- AC_DEFUN([AC_PROG_NM], [AC_DIAGNOSE([obsolete], [The macro `AC_PROG_NM' is obsolete.
+m4trace:m4/libtool.m4:3502: -1- AU_DEFUN([AC_PROG_NM], [m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
+m4trace:m4/libtool.m4:3502: -1- AC_DEFUN([AC_PROG_NM], [AC_DIAGNOSE([obsolete], [The macro `AC_PROG_NM' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PATH_NM], [LT_PATH_NM($@)])])
-m4trace:m4/libtool.m4:3557: -1- AC_DEFUN([LT_LIB_M], [AC_REQUIRE([AC_CANONICAL_HOST])dnl
+m4trace:m4/libtool.m4:3572: -1- AC_DEFUN([LT_LIB_M], [AC_REQUIRE([AC_CANONICAL_HOST])dnl
 LIBM=
 case $host in
 *-*-beos* | *-*-cegcc* | *-*-cygwin* | *-*-haiku* | *-*-pw32* | *-*-darwin*)
@@ -1505,30 +2113,30 @@ case $host in
 esac
 AC_SUBST([LIBM])
 ])
-m4trace:m4/libtool.m4:3576: -1- AU_DEFUN([AC_CHECK_LIBM], [m4_if($#, 0, [LT_LIB_M], [LT_LIB_M($@)])])
-m4trace:m4/libtool.m4:3576: -1- AC_DEFUN([AC_CHECK_LIBM], [AC_DIAGNOSE([obsolete], [The macro `AC_CHECK_LIBM' is obsolete.
+m4trace:m4/libtool.m4:3591: -1- AU_DEFUN([AC_CHECK_LIBM], [m4_if($#, 0, [LT_LIB_M], [LT_LIB_M($@)])])
+m4trace:m4/libtool.m4:3591: -1- AC_DEFUN([AC_CHECK_LIBM], [AC_DIAGNOSE([obsolete], [The macro `AC_CHECK_LIBM' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_LIB_M], [LT_LIB_M($@)])])
-m4trace:m4/libtool.m4:7623: -1- AC_DEFUN([LT_PROG_GCJ], [m4_ifdef([AC_PROG_GCJ], [AC_PROG_GCJ],
+m4trace:m4/libtool.m4:7641: -1- AC_DEFUN([LT_PROG_GCJ], [m4_ifdef([AC_PROG_GCJ], [AC_PROG_GCJ],
   [m4_ifdef([A][M_PROG_GCJ], [A][M_PROG_GCJ],
     [AC_CHECK_TOOL(GCJ, gcj,)
       test "x${GCJFLAGS+set}" = xset || GCJFLAGS="-g -O2"
       AC_SUBST(GCJFLAGS)])])[]dnl
 ])
-m4trace:m4/libtool.m4:7632: -1- AU_DEFUN([LT_AC_PROG_GCJ], [m4_if($#, 0, [LT_PROG_GCJ], [LT_PROG_GCJ($@)])])
-m4trace:m4/libtool.m4:7632: -1- AC_DEFUN([LT_AC_PROG_GCJ], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_GCJ' is obsolete.
+m4trace:m4/libtool.m4:7650: -1- AU_DEFUN([LT_AC_PROG_GCJ], [m4_if($#, 0, [LT_PROG_GCJ], [LT_PROG_GCJ($@)])])
+m4trace:m4/libtool.m4:7650: -1- AC_DEFUN([LT_AC_PROG_GCJ], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_GCJ' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PROG_GCJ], [LT_PROG_GCJ($@)])])
-m4trace:m4/libtool.m4:7639: -1- AC_DEFUN([LT_PROG_GO], [AC_CHECK_TOOL(GOC, gccgo,)
+m4trace:m4/libtool.m4:7657: -1- AC_DEFUN([LT_PROG_GO], [AC_CHECK_TOOL(GOC, gccgo,)
 ])
-m4trace:m4/libtool.m4:7646: -1- AC_DEFUN([LT_PROG_RC], [AC_CHECK_TOOL(RC, windres,)
+m4trace:m4/libtool.m4:7664: -1- AC_DEFUN([LT_PROG_RC], [AC_CHECK_TOOL(RC, windres,)
 ])
-m4trace:m4/libtool.m4:7651: -1- AU_DEFUN([LT_AC_PROG_RC], [m4_if($#, 0, [LT_PROG_RC], [LT_PROG_RC($@)])])
-m4trace:m4/libtool.m4:7651: -1- AC_DEFUN([LT_AC_PROG_RC], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_RC' is obsolete.
+m4trace:m4/libtool.m4:7669: -1- AU_DEFUN([LT_AC_PROG_RC], [m4_if($#, 0, [LT_PROG_RC], [LT_PROG_RC($@)])])
+m4trace:m4/libtool.m4:7669: -1- AC_DEFUN([LT_AC_PROG_RC], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_RC' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [LT_PROG_RC], [LT_PROG_RC($@)])])
-m4trace:m4/libtool.m4:7771: -1- AU_DEFUN([LT_AC_PROG_SED], [m4_if($#, 0, [AC_PROG_SED], [AC_PROG_SED($@)])])
-m4trace:m4/libtool.m4:7771: -1- AC_DEFUN([LT_AC_PROG_SED], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_SED' is obsolete.
+m4trace:m4/libtool.m4:7789: -1- AU_DEFUN([LT_AC_PROG_SED], [m4_if($#, 0, [AC_PROG_SED], [AC_PROG_SED($@)])])
+m4trace:m4/libtool.m4:7789: -1- AC_DEFUN([LT_AC_PROG_SED], [AC_DIAGNOSE([obsolete], [The macro `LT_AC_PROG_SED' is obsolete.
 You should run autoupdate.])dnl
 m4_if($#, 0, [AC_PROG_SED], [AC_PROG_SED($@)])])
 m4trace:m4/ltoptions.m4:14: -1- AC_DEFUN([LTOPTIONS_VERSION], [m4_if([1])])
@@ -1936,131 +2544,134 @@ configure.ac:50: the top level])
 m4trace:configure.ac:50: -1- LT_INIT
 m4trace:configure.ac:56: -1- m4_pattern_allow([^_POSIX_C_SOURCE$])
 m4trace:configure.ac:57: -1- m4_pattern_allow([^_BSD_SOURCE$])
-m4trace:configure.ac:70: -1- m4_pattern_allow([^HAVE_LIBPTHREAD$])
-m4trace:configure.ac:77: -1- m4_pattern_allow([^HAVE_LIBWSOCK32$])
-m4trace:configure.ac:79: -1- m4_pattern_allow([^DL_LIBS$])
-m4trace:configure.ac:81: -1- m4_pattern_allow([^CAIRO_LIBS$])
-m4trace:configure.ac:82: -1- m4_pattern_allow([^PTHREAD_LIBS$])
-m4trace:configure.ac:83: -1- m4_pattern_allow([^CUNIT_LIBS$])
-m4trace:configure.ac:90: -1- m4_pattern_allow([^HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH$])
-m4trace:configure.ac:95: -1- m4_pattern_allow([^size_t$])
-m4trace:configure.ac:96: -1- m4_pattern_allow([^ssize_t$])
-m4trace:configure.ac:99: -1- m4_pattern_allow([^LIBGUAC_LTLIB$])
-m4trace:configure.ac:100: -1- m4_pattern_allow([^LIBGUAC_INCLUDE$])
-m4trace:configure.ac:107: -1- AM_CONDITIONAL([ENABLE_INIT], [test "x${init_dir}" != "x"])
-m4trace:configure.ac:107: -1- m4_pattern_allow([^ENABLE_INIT_TRUE$])
-m4trace:configure.ac:107: -1- m4_pattern_allow([^ENABLE_INIT_FALSE$])
-m4trace:configure.ac:107: -1- _AM_SUBST_NOTMAKE([ENABLE_INIT_TRUE])
-m4trace:configure.ac:107: -1- _AM_SUBST_NOTMAKE([ENABLE_INIT_FALSE])
-m4trace:configure.ac:108: -1- m4_pattern_allow([^init_dir$])
-m4trace:configure.ac:119: -1- AM_CONDITIONAL([ENABLE_SSL], [test "x${have_ssl}" = "xyes"])
-m4trace:configure.ac:119: -1- m4_pattern_allow([^ENABLE_SSL_TRUE$])
-m4trace:configure.ac:119: -1- m4_pattern_allow([^ENABLE_SSL_FALSE$])
-m4trace:configure.ac:119: -1- _AM_SUBST_NOTMAKE([ENABLE_SSL_TRUE])
-m4trace:configure.ac:119: -1- _AM_SUBST_NOTMAKE([ENABLE_SSL_FALSE])
-m4trace:configure.ac:129: -1- m4_pattern_allow([^ENABLE_SSL$])
-m4trace:configure.ac:132: -1- m4_pattern_allow([^SSL_LIBS$])
-m4trace:configure.ac:146: -1- AM_CONDITIONAL([ENABLE_OGG], [test "x${have_vorbis}" = "xyes"])
-m4trace:configure.ac:146: -1- m4_pattern_allow([^ENABLE_OGG_TRUE$])
-m4trace:configure.ac:146: -1- m4_pattern_allow([^ENABLE_OGG_FALSE$])
-m4trace:configure.ac:146: -1- _AM_SUBST_NOTMAKE([ENABLE_OGG_TRUE])
-m4trace:configure.ac:146: -1- _AM_SUBST_NOTMAKE([ENABLE_OGG_FALSE])
-m4trace:configure.ac:156: -1- m4_pattern_allow([^ENABLE_OGG$])
-m4trace:configure.ac:159: -1- m4_pattern_allow([^VORBIS_LIBS$])
-m4trace:configure.ac:169: -1- AM_CONDITIONAL([ENABLE_PULSE], [test "x${have_pulse}" = "xyes"])
-m4trace:configure.ac:169: -1- m4_pattern_allow([^ENABLE_PULSE_TRUE$])
-m4trace:configure.ac:169: -1- m4_pattern_allow([^ENABLE_PULSE_FALSE$])
-m4trace:configure.ac:169: -1- _AM_SUBST_NOTMAKE([ENABLE_PULSE_TRUE])
-m4trace:configure.ac:169: -1- _AM_SUBST_NOTMAKE([ENABLE_PULSE_FALSE])
-m4trace:configure.ac:179: -1- m4_pattern_allow([^ENABLE_PULSE$])
-m4trace:configure.ac:182: -1- m4_pattern_allow([^PULSE_LIBS$])
-m4trace:configure.ac:189: -1- PKG_CHECK_MODULES([PANGO], [pango], [], [have_pango=no])
-m4trace:configure.ac:189: -1- PKG_PROG_PKG_CONFIG
-m4trace:configure.ac:189: -1- m4_pattern_forbid([^_?PKG_[A-Z_]+$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG_PATH$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG_LIBDIR$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PKG_CONFIG$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PANGO_CFLAGS$])
-m4trace:configure.ac:189: -1- m4_pattern_allow([^PANGO_LIBS$])
-m4trace:configure.ac:189: -1- PKG_CHECK_EXISTS([pango], [pkg_cv_[]PANGO_CFLAGS=`$PKG_CONFIG --[]cflags "pango" 2>/dev/null`
+m4trace:configure.ac:76: -1- m4_pattern_allow([^HAVE_LIBPTHREAD$])
+m4trace:configure.ac:83: -1- m4_pattern_allow([^HAVE_LIBWSOCK32$])
+m4trace:configure.ac:85: -1- m4_pattern_allow([^DL_LIBS$])
+m4trace:configure.ac:86: -1- m4_pattern_allow([^PNG_LIBS$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^JPEG_LIBS$])
+m4trace:configure.ac:88: -1- m4_pattern_allow([^CAIRO_LIBS$])
+m4trace:configure.ac:89: -1- m4_pattern_allow([^PTHREAD_LIBS$])
+m4trace:configure.ac:90: -1- m4_pattern_allow([^CUNIT_LIBS$])
+m4trace:configure.ac:95: -1- m4_pattern_allow([^HAVE_PNG_GET_IO_PTR$])
+m4trace:configure.ac:99: -1- m4_pattern_allow([^HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH$])
+m4trace:configure.ac:104: -1- m4_pattern_allow([^size_t$])
+m4trace:configure.ac:105: -1- m4_pattern_allow([^ssize_t$])
+m4trace:configure.ac:108: -1- m4_pattern_allow([^LIBGUAC_LTLIB$])
+m4trace:configure.ac:109: -1- m4_pattern_allow([^LIBGUAC_INCLUDE$])
+m4trace:configure.ac:116: -1- AM_CONDITIONAL([ENABLE_INIT], [test "x${init_dir}" != "x"])
+m4trace:configure.ac:116: -1- m4_pattern_allow([^ENABLE_INIT_TRUE$])
+m4trace:configure.ac:116: -1- m4_pattern_allow([^ENABLE_INIT_FALSE$])
+m4trace:configure.ac:116: -1- _AM_SUBST_NOTMAKE([ENABLE_INIT_TRUE])
+m4trace:configure.ac:116: -1- _AM_SUBST_NOTMAKE([ENABLE_INIT_FALSE])
+m4trace:configure.ac:117: -1- m4_pattern_allow([^init_dir$])
+m4trace:configure.ac:128: -1- AM_CONDITIONAL([ENABLE_SSL], [test "x${have_ssl}" = "xyes"])
+m4trace:configure.ac:128: -1- m4_pattern_allow([^ENABLE_SSL_TRUE$])
+m4trace:configure.ac:128: -1- m4_pattern_allow([^ENABLE_SSL_FALSE$])
+m4trace:configure.ac:128: -1- _AM_SUBST_NOTMAKE([ENABLE_SSL_TRUE])
+m4trace:configure.ac:128: -1- _AM_SUBST_NOTMAKE([ENABLE_SSL_FALSE])
+m4trace:configure.ac:138: -1- m4_pattern_allow([^ENABLE_SSL$])
+m4trace:configure.ac:141: -1- m4_pattern_allow([^SSL_LIBS$])
+m4trace:configure.ac:155: -1- AM_CONDITIONAL([ENABLE_OGG], [test "x${have_vorbis}" = "xyes"])
+m4trace:configure.ac:155: -1- m4_pattern_allow([^ENABLE_OGG_TRUE$])
+m4trace:configure.ac:155: -1- m4_pattern_allow([^ENABLE_OGG_FALSE$])
+m4trace:configure.ac:155: -1- _AM_SUBST_NOTMAKE([ENABLE_OGG_TRUE])
+m4trace:configure.ac:155: -1- _AM_SUBST_NOTMAKE([ENABLE_OGG_FALSE])
+m4trace:configure.ac:165: -1- m4_pattern_allow([^ENABLE_OGG$])
+m4trace:configure.ac:168: -1- m4_pattern_allow([^VORBIS_LIBS$])
+m4trace:configure.ac:178: -1- AM_CONDITIONAL([ENABLE_PULSE], [test "x${have_pulse}" = "xyes"])
+m4trace:configure.ac:178: -1- m4_pattern_allow([^ENABLE_PULSE_TRUE$])
+m4trace:configure.ac:178: -1- m4_pattern_allow([^ENABLE_PULSE_FALSE$])
+m4trace:configure.ac:178: -1- _AM_SUBST_NOTMAKE([ENABLE_PULSE_TRUE])
+m4trace:configure.ac:178: -1- _AM_SUBST_NOTMAKE([ENABLE_PULSE_FALSE])
+m4trace:configure.ac:188: -1- m4_pattern_allow([^ENABLE_PULSE$])
+m4trace:configure.ac:191: -1- m4_pattern_allow([^PULSE_LIBS$])
+m4trace:configure.ac:198: -1- PKG_CHECK_MODULES([PANGO], [pango], [], [have_pango=no])
+m4trace:configure.ac:198: -1- PKG_PROG_PKG_CONFIG
+m4trace:configure.ac:198: -1- m4_pattern_forbid([^_?PKG_[A-Z_]+$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG_PATH$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG_LIBDIR$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PKG_CONFIG$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PANGO_CFLAGS$])
+m4trace:configure.ac:198: -1- m4_pattern_allow([^PANGO_LIBS$])
+m4trace:configure.ac:198: -1- PKG_CHECK_EXISTS([pango], [pkg_cv_[]PANGO_CFLAGS=`$PKG_CONFIG --[]cflags "pango" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:189: -1- PKG_CHECK_EXISTS([pango], [pkg_cv_[]PANGO_LIBS=`$PKG_CONFIG --[]libs "pango" 2>/dev/null`
+m4trace:configure.ac:198: -1- PKG_CHECK_EXISTS([pango], [pkg_cv_[]PANGO_LIBS=`$PKG_CONFIG --[]libs "pango" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:189: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:190: -1- PKG_CHECK_MODULES([PANGOCAIRO], [pangocairo], [], [have_pango=no])
-m4trace:configure.ac:190: -1- m4_pattern_allow([^PANGOCAIRO_CFLAGS$])
-m4trace:configure.ac:190: -1- m4_pattern_allow([^PANGOCAIRO_LIBS$])
-m4trace:configure.ac:190: -1- PKG_CHECK_EXISTS([pangocairo], [pkg_cv_[]PANGOCAIRO_CFLAGS=`$PKG_CONFIG --[]cflags "pangocairo" 2>/dev/null`
+m4trace:configure.ac:198: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:199: -1- PKG_CHECK_MODULES([PANGOCAIRO], [pangocairo], [], [have_pango=no])
+m4trace:configure.ac:199: -1- m4_pattern_allow([^PANGOCAIRO_CFLAGS$])
+m4trace:configure.ac:199: -1- m4_pattern_allow([^PANGOCAIRO_LIBS$])
+m4trace:configure.ac:199: -1- PKG_CHECK_EXISTS([pangocairo], [pkg_cv_[]PANGOCAIRO_CFLAGS=`$PKG_CONFIG --[]cflags "pangocairo" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:190: -1- PKG_CHECK_EXISTS([pangocairo], [pkg_cv_[]PANGOCAIRO_LIBS=`$PKG_CONFIG --[]libs "pangocairo" 2>/dev/null`
+m4trace:configure.ac:199: -1- PKG_CHECK_EXISTS([pangocairo], [pkg_cv_[]PANGOCAIRO_LIBS=`$PKG_CONFIG --[]libs "pangocairo" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:190: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:200: -1- AM_CONDITIONAL([ENABLE_VNC], [test "x${have_libvncserver}" = "xyes"])
-m4trace:configure.ac:200: -1- m4_pattern_allow([^ENABLE_VNC_TRUE$])
-m4trace:configure.ac:200: -1- m4_pattern_allow([^ENABLE_VNC_FALSE$])
-m4trace:configure.ac:200: -1- _AM_SUBST_NOTMAKE([ENABLE_VNC_TRUE])
-m4trace:configure.ac:200: -1- _AM_SUBST_NOTMAKE([ENABLE_VNC_FALSE])
-m4trace:configure.ac:202: -1- m4_pattern_allow([^VNC_LIBS$])
-m4trace:configure.ac:212: -1- m4_pattern_allow([^HAVE_RFBCLIENT_DESTHOST$])
-m4trace:configure.ac:212: -1- m4_pattern_allow([^HAVE_RFBCLIENT_DESTPORT$])
-m4trace:configure.ac:224: -1- m4_pattern_allow([^ENABLE_VNC_REPEATER$])
-m4trace:configure.ac:295: -1- m4_pattern_allow([^HAVE_RDPSVCPLUGIN_INTERVAL_MS$])
-m4trace:configure.ac:300: -2- m4_pattern_allow([^HAVE_FREERDP_KBD_LAYOUTS_H$])
-m4trace:configure.ac:299: -1- m4_pattern_allow([^HAVE_FREERDP_LOCALE_KEYBOARD_H$])
-m4trace:configure.ac:313: -2- m4_pattern_allow([^HAVE_FREERDP_PLUGINS_CLIPRDR_H$])
-m4trace:configure.ac:312: -1- m4_pattern_allow([^HAVE_FREERDP_CLIENT_CLIPRDR_H$])
-m4trace:configure.ac:324: -1- m4_pattern_allow([^HAVE_FREERDP_REGISTER_ADDIN_PROVIDER$])
-m4trace:configure.ac:357: -1- m4_pattern_allow([^ENABLE_WINPR$])
-m4trace:configure.ac:365: -1- m4_pattern_allow([^HAVE_FREERDP_CONTEXTSIZE$])
-m4trace:configure.ac:372: -1- m4_pattern_allow([^HAVE_FREERDP_CONTEXT_SIZE$])
-m4trace:configure.ac:379: -1- m4_pattern_allow([^LEGACY_FREERDP$])
-m4trace:configure.ac:394: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_WIDTH$])
-m4trace:configure.ac:394: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_HEIGHT$])
-m4trace:configure.ac:394: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_ORDERSUPPORT$])
+m4trace:configure.ac:199: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:209: -1- AM_CONDITIONAL([ENABLE_VNC], [test "x${have_libvncserver}" = "xyes"])
+m4trace:configure.ac:209: -1- m4_pattern_allow([^ENABLE_VNC_TRUE$])
+m4trace:configure.ac:209: -1- m4_pattern_allow([^ENABLE_VNC_FALSE$])
+m4trace:configure.ac:209: -1- _AM_SUBST_NOTMAKE([ENABLE_VNC_TRUE])
+m4trace:configure.ac:209: -1- _AM_SUBST_NOTMAKE([ENABLE_VNC_FALSE])
+m4trace:configure.ac:211: -1- m4_pattern_allow([^VNC_LIBS$])
+m4trace:configure.ac:221: -1- m4_pattern_allow([^HAVE_RFBCLIENT_DESTHOST$])
+m4trace:configure.ac:221: -1- m4_pattern_allow([^HAVE_RFBCLIENT_DESTPORT$])
+m4trace:configure.ac:233: -1- m4_pattern_allow([^ENABLE_VNC_REPEATER$])
+m4trace:configure.ac:304: -1- m4_pattern_allow([^HAVE_RDPSVCPLUGIN_INTERVAL_MS$])
+m4trace:configure.ac:309: -2- m4_pattern_allow([^HAVE_FREERDP_KBD_LAYOUTS_H$])
+m4trace:configure.ac:308: -1- m4_pattern_allow([^HAVE_FREERDP_LOCALE_KEYBOARD_H$])
+m4trace:configure.ac:322: -2- m4_pattern_allow([^HAVE_FREERDP_PLUGINS_CLIPRDR_H$])
+m4trace:configure.ac:321: -1- m4_pattern_allow([^HAVE_FREERDP_CLIENT_CLIPRDR_H$])
+m4trace:configure.ac:333: -1- m4_pattern_allow([^HAVE_FREERDP_REGISTER_ADDIN_PROVIDER$])
+m4trace:configure.ac:366: -1- m4_pattern_allow([^ENABLE_WINPR$])
+m4trace:configure.ac:374: -1- m4_pattern_allow([^HAVE_FREERDP_CONTEXTSIZE$])
+m4trace:configure.ac:381: -1- m4_pattern_allow([^HAVE_FREERDP_CONTEXT_SIZE$])
+m4trace:configure.ac:388: -1- m4_pattern_allow([^LEGACY_FREERDP$])
 m4trace:configure.ac:403: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_WIDTH$])
 m4trace:configure.ac:403: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_HEIGHT$])
-m4trace:configure.ac:403: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_ORDER_SUPPORT$])
-m4trace:configure.ac:412: -1- m4_pattern_allow([^LEGACY_RDPSETTINGS$])
-m4trace:configure.ac:427: -1- m4_pattern_allow([^LEGACY_RDPBITMAP$])
-m4trace:configure.ac:448: -1- m4_pattern_allow([^LEGACY_RDPPALETTE$])
-m4trace:configure.ac:460: -1- m4_pattern_allow([^HAVE_WMESSAGE_ID$])
-m4trace:configure.ac:467: -1- m4_pattern_allow([^HAVE_RDP_EVENT_EVENT_CLASS$])
-m4trace:configure.ac:474: -1- m4_pattern_allow([^LEGACY_EVENT$])
-m4trace:configure.ac:485: -1- AM_CONDITIONAL([LEGACY_FREERDP_EXTENSIONS], [test "x${legacy_freerdp_extensions}" = "xyes"])
-m4trace:configure.ac:485: -1- m4_pattern_allow([^LEGACY_FREERDP_EXTENSIONS_TRUE$])
-m4trace:configure.ac:485: -1- m4_pattern_allow([^LEGACY_FREERDP_EXTENSIONS_FALSE$])
-m4trace:configure.ac:485: -1- _AM_SUBST_NOTMAKE([LEGACY_FREERDP_EXTENSIONS_TRUE])
-m4trace:configure.ac:485: -1- _AM_SUBST_NOTMAKE([LEGACY_FREERDP_EXTENSIONS_FALSE])
-m4trace:configure.ac:486: -1- AM_CONDITIONAL([ENABLE_WINPR], [test "x${have_winpr}"   = "xyes"])
-m4trace:configure.ac:486: -1- m4_pattern_allow([^ENABLE_WINPR_TRUE$])
-m4trace:configure.ac:486: -1- m4_pattern_allow([^ENABLE_WINPR_FALSE$])
-m4trace:configure.ac:486: -1- _AM_SUBST_NOTMAKE([ENABLE_WINPR_TRUE])
-m4trace:configure.ac:486: -1- _AM_SUBST_NOTMAKE([ENABLE_WINPR_FALSE])
-m4trace:configure.ac:487: -1- AM_CONDITIONAL([ENABLE_RDP], [test "x${have_freerdp}" = "xyes"])
-m4trace:configure.ac:487: -1- m4_pattern_allow([^ENABLE_RDP_TRUE$])
-m4trace:configure.ac:487: -1- m4_pattern_allow([^ENABLE_RDP_FALSE$])
-m4trace:configure.ac:487: -1- _AM_SUBST_NOTMAKE([ENABLE_RDP_TRUE])
-m4trace:configure.ac:487: -1- _AM_SUBST_NOTMAKE([ENABLE_RDP_FALSE])
-m4trace:configure.ac:489: -1- m4_pattern_allow([^RDP_LIBS$])
-m4trace:configure.ac:499: -1- AM_CONDITIONAL([ENABLE_SSH], [test "x${have_libssh}" = "xyes" -a "x${have_pango}" = "xyes"])
-m4trace:configure.ac:499: -1- m4_pattern_allow([^ENABLE_SSH_TRUE$])
-m4trace:configure.ac:499: -1- m4_pattern_allow([^ENABLE_SSH_FALSE$])
-m4trace:configure.ac:499: -1- _AM_SUBST_NOTMAKE([ENABLE_SSH_TRUE])
-m4trace:configure.ac:499: -1- _AM_SUBST_NOTMAKE([ENABLE_SSH_FALSE])
-m4trace:configure.ac:501: -1- m4_pattern_allow([^SSH_LIBS$])
-m4trace:configure.ac:510: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:510: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:510: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
-m4trace:configure.ac:510: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
-m4trace:configure.ac:510: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
-m4trace:configure.ac:510: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
-m4trace:configure.ac:510: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
-m4trace:configure.ac:510: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
-m4trace:configure.ac:510: -1- _LT_PROG_LTMAIN
-m4trace:configure.ac:512: -1- AM_COND_IF([ENABLE_RDP], [build_rdp=yes], [build_rdp=no])
-m4trace:configure.ac:513: -1- AM_COND_IF([ENABLE_SSH], [build_ssh=yes], [build_ssh=no])
-m4trace:configure.ac:514: -1- AM_COND_IF([ENABLE_VNC], [build_vnc=yes], [build_vnc=no])
-m4trace:configure.ac:516: -1- AM_COND_IF([ENABLE_INIT], [build_init="${init_dir}"], [build_init=no])
+m4trace:configure.ac:403: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_ORDERSUPPORT$])
+m4trace:configure.ac:412: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_WIDTH$])
+m4trace:configure.ac:412: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_HEIGHT$])
+m4trace:configure.ac:412: -1- m4_pattern_allow([^HAVE_RDPSETTINGS_ORDER_SUPPORT$])
+m4trace:configure.ac:421: -1- m4_pattern_allow([^LEGACY_RDPSETTINGS$])
+m4trace:configure.ac:436: -1- m4_pattern_allow([^LEGACY_RDPBITMAP$])
+m4trace:configure.ac:457: -1- m4_pattern_allow([^LEGACY_RDPPALETTE$])
+m4trace:configure.ac:469: -1- m4_pattern_allow([^HAVE_WMESSAGE_ID$])
+m4trace:configure.ac:476: -1- m4_pattern_allow([^HAVE_RDP_EVENT_EVENT_CLASS$])
+m4trace:configure.ac:483: -1- m4_pattern_allow([^LEGACY_EVENT$])
+m4trace:configure.ac:494: -1- AM_CONDITIONAL([LEGACY_FREERDP_EXTENSIONS], [test "x${legacy_freerdp_extensions}" = "xyes"])
+m4trace:configure.ac:494: -1- m4_pattern_allow([^LEGACY_FREERDP_EXTENSIONS_TRUE$])
+m4trace:configure.ac:494: -1- m4_pattern_allow([^LEGACY_FREERDP_EXTENSIONS_FALSE$])
+m4trace:configure.ac:494: -1- _AM_SUBST_NOTMAKE([LEGACY_FREERDP_EXTENSIONS_TRUE])
+m4trace:configure.ac:494: -1- _AM_SUBST_NOTMAKE([LEGACY_FREERDP_EXTENSIONS_FALSE])
+m4trace:configure.ac:495: -1- AM_CONDITIONAL([ENABLE_WINPR], [test "x${have_winpr}"   = "xyes"])
+m4trace:configure.ac:495: -1- m4_pattern_allow([^ENABLE_WINPR_TRUE$])
+m4trace:configure.ac:495: -1- m4_pattern_allow([^ENABLE_WINPR_FALSE$])
+m4trace:configure.ac:495: -1- _AM_SUBST_NOTMAKE([ENABLE_WINPR_TRUE])
+m4trace:configure.ac:495: -1- _AM_SUBST_NOTMAKE([ENABLE_WINPR_FALSE])
+m4trace:configure.ac:496: -1- AM_CONDITIONAL([ENABLE_RDP], [test "x${have_freerdp}" = "xyes"])
+m4trace:configure.ac:496: -1- m4_pattern_allow([^ENABLE_RDP_TRUE$])
+m4trace:configure.ac:496: -1- m4_pattern_allow([^ENABLE_RDP_FALSE$])
+m4trace:configure.ac:496: -1- _AM_SUBST_NOTMAKE([ENABLE_RDP_TRUE])
+m4trace:configure.ac:496: -1- _AM_SUBST_NOTMAKE([ENABLE_RDP_FALSE])
+m4trace:configure.ac:498: -1- m4_pattern_allow([^RDP_LIBS$])
+m4trace:configure.ac:508: -1- AM_CONDITIONAL([ENABLE_SSH], [test "x${have_libssh}" = "xyes" -a "x${have_pango}" = "xyes"])
+m4trace:configure.ac:508: -1- m4_pattern_allow([^ENABLE_SSH_TRUE$])
+m4trace:configure.ac:508: -1- m4_pattern_allow([^ENABLE_SSH_FALSE$])
+m4trace:configure.ac:508: -1- _AM_SUBST_NOTMAKE([ENABLE_SSH_TRUE])
+m4trace:configure.ac:508: -1- _AM_SUBST_NOTMAKE([ENABLE_SSH_FALSE])
+m4trace:configure.ac:510: -1- m4_pattern_allow([^SSH_LIBS$])
+m4trace:configure.ac:519: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:519: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:519: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
+m4trace:configure.ac:519: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
+m4trace:configure.ac:519: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
+m4trace:configure.ac:519: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
+m4trace:configure.ac:519: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
+m4trace:configure.ac:519: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:519: -1- _LT_PROG_LTMAIN
+m4trace:configure.ac:521: -1- AM_COND_IF([ENABLE_RDP], [build_rdp=yes], [build_rdp=no])
+m4trace:configure.ac:522: -1- AM_COND_IF([ENABLE_SSH], [build_ssh=yes], [build_ssh=no])
+m4trace:configure.ac:523: -1- AM_COND_IF([ENABLE_VNC], [build_vnc=yes], [build_vnc=no])
+m4trace:configure.ac:525: -1- AM_COND_IF([ENABLE_INIT], [build_init="${init_dir}"], [build_init=no])

@@ -164,54 +164,54 @@ configure:5026: checking for objdump
 configure:5042: found /usr/bin/objdump
 configure:5053: result: objdump
 configure:5085: checking how to recognize dependent libraries
-configure:5283: result: pass_all
-configure:5368: checking for dlltool
-configure:5398: result: no
-configure:5428: checking how to associate runtime and link libraries
-configure:5455: result: printf %s\n
-configure:5516: checking for ar
-configure:5532: found /usr/bin/ar
-configure:5543: result: ar
-configure:5580: checking for archiver @FILE support
-configure:5597: gcc -c -g -O2  conftest.c >&5
-configure:5597: $? = 0
-configure:5600: ar cru libconftest.a @conftest.lst >&5
-configure:5603: $? = 0
-configure:5608: ar cru libconftest.a @conftest.lst >&5
+configure:5287: result: pass_all
+configure:5372: checking for dlltool
+configure:5402: result: no
+configure:5432: checking how to associate runtime and link libraries
+configure:5459: result: printf %s\n
+configure:5520: checking for ar
+configure:5536: found /usr/bin/ar
+configure:5547: result: ar
+configure:5584: checking for archiver @FILE support
+configure:5601: gcc -c -g -O2  conftest.c >&5
+configure:5601: $? = 0
+configure:5604: ar cru libconftest.a @conftest.lst >&5
+configure:5607: $? = 0
+configure:5612: ar cru libconftest.a @conftest.lst >&5
 ar: conftest.o: No such file or directory
-configure:5611: $? = 1
-configure:5623: result: @
-configure:5681: checking for strip
-configure:5697: found /usr/bin/strip
-configure:5708: result: strip
-configure:5780: checking for ranlib
-configure:5796: found /usr/bin/ranlib
-configure:5807: result: ranlib
-configure:5909: checking command to parse /usr/bin/nm -B output from gcc object
-configure:6029: gcc -c -g -O2  conftest.c >&5
-configure:6032: $? = 0
-configure:6036: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ ][ ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
-configure:6039: $? = 0
-configure:6105: gcc -o conftest -g -O2   conftest.c conftstm.o >&5
-configure:6108: $? = 0
-configure:6146: result: ok
-configure:6183: checking for sysroot
-configure:6213: result: no
-configure:6290: gcc -c -g -O2  conftest.c >&5
-configure:6293: $? = 0
-configure:6469: checking for mt
-configure:6485: found /bin/mt
-configure:6496: result: mt
-configure:6519: checking if mt is a manifest tool
-configure:6525: mt '-?'
-configure:6533: result: no
-configure:7175: checking how to run the C preprocessor
-configure:7206: gcc -E  conftest.c
-configure:7206: $? = 0
-configure:7220: gcc -E  conftest.c
+configure:5615: $? = 1
+configure:5627: result: @
+configure:5685: checking for strip
+configure:5701: found /usr/bin/strip
+configure:5712: result: strip
+configure:5784: checking for ranlib
+configure:5800: found /usr/bin/ranlib
+configure:5811: result: ranlib
+configure:5913: checking command to parse /usr/bin/nm -B output from gcc object
+configure:6033: gcc -c -g -O2  conftest.c >&5
+configure:6036: $? = 0
+configure:6040: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ ][ ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
+configure:6043: $? = 0
+configure:6109: gcc -o conftest -g -O2   conftest.c conftstm.o >&5
+configure:6112: $? = 0
+configure:6150: result: ok
+configure:6187: checking for sysroot
+configure:6217: result: no
+configure:6294: gcc -c -g -O2  conftest.c >&5
+configure:6297: $? = 0
+configure:6473: checking for mt
+configure:6489: found /bin/mt
+configure:6500: result: mt
+configure:6523: checking if mt is a manifest tool
+configure:6529: mt '-?'
+configure:6537: result: no
+configure:7179: checking how to run the C preprocessor
+configure:7210: gcc -E  conftest.c
+configure:7210: $? = 0
+configure:7224: gcc -E  conftest.c
 conftest.c:11:28: fatal error: ac_nonexistent.h: No such file or directory
 compilation terminated.
-configure:7220: $? = 1
+configure:7224: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -224,13 +224,13 @@ configure: failed program was:
 | #define VERSION "0.8.3"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:7245: result: gcc -E
-configure:7265: gcc -E  conftest.c
-configure:7265: $? = 0
-configure:7279: gcc -E  conftest.c
+configure:7249: result: gcc -E
+configure:7269: gcc -E  conftest.c
+configure:7269: $? = 0
+configure:7283: gcc -E  conftest.c
 conftest.c:11:28: fatal error: ac_nonexistent.h: No such file or directory
 compilation terminated.
-configure:7279: $? = 1
+configure:7283: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -243,95 +243,95 @@ configure: failed program was:
 | #define VERSION "0.8.3"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:7308: checking for ANSI C header files
-configure:7328: gcc -c -g -O2  conftest.c >&5
-configure:7328: $? = 0
-configure:7401: gcc -o conftest -g -O2   conftest.c  >&5
-configure:7401: $? = 0
-configure:7401: ./conftest
-configure:7401: $? = 0
-configure:7412: result: yes
-configure:7425: checking for sys/types.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for sys/stat.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for stdlib.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for string.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for memory.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for strings.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for inttypes.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for stdint.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7425: checking for unistd.h
-configure:7425: gcc -c -g -O2  conftest.c >&5
-configure:7425: $? = 0
-configure:7425: result: yes
-configure:7439: checking for dlfcn.h
-configure:7439: gcc -c -g -O2  conftest.c >&5
-configure:7439: $? = 0
-configure:7439: result: yes
-configure:7644: checking for objdir
-configure:7659: result: .libs
-configure:7930: checking if gcc supports -fno-rtti -fno-exceptions
-configure:7948: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
+configure:7312: checking for ANSI C header files
+configure:7332: gcc -c -g -O2  conftest.c >&5
+configure:7332: $? = 0
+configure:7405: gcc -o conftest -g -O2   conftest.c  >&5
+configure:7405: $? = 0
+configure:7405: ./conftest
+configure:7405: $? = 0
+configure:7416: result: yes
+configure:7429: checking for sys/types.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for sys/stat.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for stdlib.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for string.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for memory.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for strings.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for inttypes.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for stdint.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7429: checking for unistd.h
+configure:7429: gcc -c -g -O2  conftest.c >&5
+configure:7429: $? = 0
+configure:7429: result: yes
+configure:7443: checking for dlfcn.h
+configure:7443: gcc -c -g -O2  conftest.c >&5
+configure:7443: $? = 0
+configure:7443: result: yes
+configure:7648: checking for objdir
+configure:7663: result: .libs
+configure:7934: checking if gcc supports -fno-rtti -fno-exceptions
+configure:7952: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
 cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C [enabled by default]
-configure:7952: $? = 0
-configure:7965: result: no
-configure:8292: checking for gcc option to produce PIC
-configure:8299: result: -fPIC -DPIC
-configure:8307: checking if gcc PIC flag -fPIC -DPIC works
-configure:8325: gcc -c -g -O2  -fPIC -DPIC -DPIC conftest.c >&5
-configure:8329: $? = 0
-configure:8342: result: yes
-configure:8371: checking if gcc static flag -static works
-configure:8399: result: yes
-configure:8414: checking if gcc supports -c -o file.o
-configure:8435: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
-configure:8439: $? = 0
-configure:8461: result: yes
-configure:8469: checking if gcc supports -c -o file.o
-configure:8516: result: yes
-configure:8549: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:9706: result: yes
-configure:9743: checking whether -lc should be explicitly linked in
-configure:9751: gcc -c -g -O2  conftest.c >&5
-configure:9754: $? = 0
-configure:9769: gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
-configure:9772: $? = 0
-configure:9786: result: no
-configure:9946: checking dynamic linker characteristics
-configure:10446: gcc -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.c  >&5
-configure:10446: $? = 0
-configure:10680: result: GNU/Linux ld.so
-configure:10787: checking how to hardcode library paths into programs
-configure:10812: result: immediate
-configure:10906: checking for shl_load
-configure:10906: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccDGK6Pp.o: In function `main':
-/home/vm/x/guacamole-server-0.8.3/conftest.c:57: undefined reference to `shl_load'
+configure:7956: $? = 0
+configure:7969: result: no
+configure:8296: checking for gcc option to produce PIC
+configure:8303: result: -fPIC -DPIC
+configure:8311: checking if gcc PIC flag -fPIC -DPIC works
+configure:8329: gcc -c -g -O2  -fPIC -DPIC -DPIC conftest.c >&5
+configure:8333: $? = 0
+configure:8346: result: yes
+configure:8375: checking if gcc static flag -static works
+configure:8403: result: yes
+configure:8418: checking if gcc supports -c -o file.o
+configure:8439: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
+configure:8443: $? = 0
+configure:8465: result: yes
+configure:8473: checking if gcc supports -c -o file.o
+configure:8520: result: yes
+configure:8553: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:9710: result: yes
+configure:9747: checking whether -lc should be explicitly linked in
+configure:9755: gcc -c -g -O2  conftest.c >&5
+configure:9758: $? = 0
+configure:9773: gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
+configure:9776: $? = 0
+configure:9790: result: no
+configure:9950: checking dynamic linker characteristics
+configure:10461: gcc -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.c  >&5
+configure:10461: $? = 0
+configure:10695: result: GNU/Linux ld.so
+configure:10802: checking how to hardcode library paths into programs
+configure:10827: result: immediate
+configure:10921: checking for shl_load
+configure:10921: gcc -o conftest -g -O2   conftest.c  >&5
+/tmp/ccXGhfmQ.o: In function `main':
+/home/vm/guacamole-server-0.8.3/conftest.c:57: undefined reference to `shl_load'
 collect2: ld returned 1 exit status
-configure:10906: $? = 1
+configure:10921: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -393,12 +393,12 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:10906: result: no
-configure:10910: checking for shl_load in -ldld
-configure:10935: gcc -o conftest -g -O2   conftest.c -ldld   >&5
+configure:10921: result: no
+configure:10925: checking for shl_load in -ldld
+configure:10950: gcc -o conftest -g -O2   conftest.c -ldld   >&5
 /usr/bin/ld: cannot find -ldld
 collect2: ld returned 1 exit status
-configure:10935: $? = 1
+configure:10950: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -437,13 +437,13 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:10944: result: no
-configure:10949: checking for dlopen
-configure:10949: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cc0mYwhD.o: In function `main':
-/home/vm/x/guacamole-server-0.8.3/conftest.c:57: undefined reference to `dlopen'
+configure:10959: result: no
+configure:10964: checking for dlopen
+configure:10964: gcc -o conftest -g -O2   conftest.c  >&5
+/tmp/ccqHGPc4.o: In function `main':
+/home/vm/guacamole-server-0.8.3/conftest.c:57: undefined reference to `dlopen'
 collect2: ld returned 1 exit status
-configure:10949: $? = 1
+configure:10964: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -505,42 +505,42 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:10949: result: no
-configure:10953: checking for dlopen in -ldl
-configure:10978: gcc -o conftest -g -O2   conftest.c -ldl   >&5
-configure:10978: $? = 0
-configure:10987: result: yes
-configure:11106: checking whether a program can dlopen itself
-configure:11186: gcc -o conftest -g -O2  -DHAVE_DLFCN_H  -Wl,--export-dynamic conftest.c -ldl  >&5
-configure:11189: $? = 0
-configure:11207: result: yes
-configure:11212: checking whether a statically linked program can dlopen itself
-configure:11292: gcc -o conftest -g -O2  -DHAVE_DLFCN_H  -Wl,--export-dynamic -static conftest.c -ldl  >&5
-/tmp/ccgqckhM.o: In function `main':
-/home/vm/x/guacamole-server-0.8.3/configure:11271: warning: Using 'dlopen' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+configure:10964: result: no
+configure:10968: checking for dlopen in -ldl
+configure:10993: gcc -o conftest -g -O2   conftest.c -ldl   >&5
+configure:10993: $? = 0
+configure:11002: result: yes
+configure:11121: checking whether a program can dlopen itself
+configure:11201: gcc -o conftest -g -O2  -DHAVE_DLFCN_H  -Wl,--export-dynamic conftest.c -ldl  >&5
+configure:11204: $? = 0
+configure:11222: result: yes
+configure:11227: checking whether a statically linked program can dlopen itself
+configure:11307: gcc -o conftest -g -O2  -DHAVE_DLFCN_H  -Wl,--export-dynamic -static conftest.c -ldl  >&5
+/tmp/ccCtGpCm.o: In function `main':
+/home/vm/guacamole-server-0.8.3/configure:11286: warning: Using 'dlopen' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
 /usr/bin/ld: dynamic STT_GNU_IFUNC symbol `strcmp' with pointer equality in `/usr/lib/gcc/x86_64-linux-gnu/4.6/../../../x86_64-linux-gnu/libc.a(strcmp.o)' can not be used when making an executable; recompile with -fPIE and relink with -pie
 collect2: ld returned 1 exit status
-configure:11295: $? = 1
-configure:11313: result: no
-configure:11352: checking whether stripping libraries is possible
-configure:11357: result: yes
-configure:11392: checking if libtool supports shared libraries
-configure:11394: result: yes
-configure:11397: checking whether to build shared libraries
-configure:11418: result: yes
-configure:11421: checking whether to build static libraries
-configure:11425: result: yes
-configure:11514: checking for gcc
-configure:11541: result: gcc
-configure:11770: checking for C compiler version
-configure:11779: gcc --version >&5
+configure:11310: $? = 1
+configure:11328: result: no
+configure:11367: checking whether stripping libraries is possible
+configure:11372: result: yes
+configure:11407: checking if libtool supports shared libraries
+configure:11409: result: yes
+configure:11412: checking whether to build shared libraries
+configure:11433: result: yes
+configure:11436: checking whether to build static libraries
+configure:11440: result: yes
+configure:11529: checking for gcc
+configure:11556: result: gcc
+configure:11785: checking for C compiler version
+configure:11794: gcc --version >&5
 gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
 Copyright (C) 2011 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:11790: $? = 0
-configure:11779: gcc -v >&5
+configure:11805: $? = 0
+configure:11794: gcc -v >&5
 Using built-in specs.
 COLLECT_GCC=gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.6/lto-wrapper
@@ -548,27 +548,27 @@ Target: x86_64-linux-gnu
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.6.3-1ubuntu5' --with-bugurl=file:///usr/share/doc/gcc-4.6/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --enable-objc-gc --disable-werror --with-arch-32=i686 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) 
-configure:11790: $? = 0
-configure:11779: gcc -V >&5
+configure:11805: $? = 0
+configure:11794: gcc -V >&5
 gcc: error: unrecognized option '-V'
 gcc: fatal error: no input files
 compilation terminated.
-configure:11790: $? = 4
-configure:11779: gcc -qversion >&5
+configure:11805: $? = 4
+configure:11794: gcc -qversion >&5
 gcc: error: unrecognized option '-qversion'
 gcc: fatal error: no input files
 compilation terminated.
-configure:11790: $? = 4
-configure:11794: checking whether we are using the GNU C compiler
-configure:11822: result: yes
-configure:11831: checking whether gcc accepts -g
-configure:11892: result: yes
-configure:11909: checking for gcc option to accept ISO C89
-configure:11986: result: none needed
-configure:12008: checking dependency style of gcc
-configure:12119: result: gcc3
-configure:12134: checking for gcc option to accept ISO C99
-configure:12283: gcc  -c -g -O2  conftest.c >&5
+configure:11805: $? = 4
+configure:11809: checking whether we are using the GNU C compiler
+configure:11837: result: yes
+configure:11846: checking whether gcc accepts -g
+configure:11907: result: yes
+configure:11924: checking for gcc option to accept ISO C89
+configure:12001: result: none needed
+configure:12023: checking dependency style of gcc
+configure:12134: result: gcc3
+configure:12149: checking for gcc option to accept ISO C99
+configure:12298: gcc  -c -g -O2  conftest.c >&5
 conftest.c:73:29: error: expected ';', ',' or ')' before 'text'
 conftest.c: In function 'main':
 conftest.c:127:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'newvar'
@@ -576,7 +576,7 @@ conftest.c:127:18: error: 'newvar' undeclared (first use in this function)
 conftest.c:127:18: note: each undeclared identifier is reported only once for each function it appears in
 conftest.c:137:3: error: 'for' loop initial declarations are only allowed in C99 mode
 conftest.c:137:3: note: use option -std=c99 or -std=gnu99 to compile your code
-configure:12283: $? = 1
+configure:12298: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -736,80 +736,80 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:12283: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12283: $? = 0
-configure:12303: result: -std=gnu99
-configure:12317: checking fcntl.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking fcntl.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for fcntl.h
-configure:12317: result: yes
-configure:12317: checking for stdlib.h
-configure:12317: result: yes
-configure:12317: checking for string.h
-configure:12317: result: yes
-configure:12317: checking sys/socket.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking sys/socket.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for sys/socket.h
-configure:12317: result: yes
-configure:12317: checking time.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking time.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for time.h
-configure:12317: result: yes
-configure:12317: checking sys/time.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking sys/time.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for sys/time.h
-configure:12317: result: yes
-configure:12317: checking syslog.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking syslog.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for syslog.h
-configure:12317: result: yes
-configure:12317: checking for unistd.h
-configure:12317: result: yes
-configure:12317: checking cairo/cairo.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking cairo/cairo.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for cairo/cairo.h
-configure:12317: result: yes
-configure:12317: checking pngstruct.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12298: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12298: $? = 0
+configure:12318: result: -std=gnu99
+configure:12332: checking fcntl.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking fcntl.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for fcntl.h
+configure:12332: result: yes
+configure:12332: checking for stdlib.h
+configure:12332: result: yes
+configure:12332: checking for string.h
+configure:12332: result: yes
+configure:12332: checking sys/socket.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking sys/socket.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for sys/socket.h
+configure:12332: result: yes
+configure:12332: checking time.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking time.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for time.h
+configure:12332: result: yes
+configure:12332: checking sys/time.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking sys/time.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for sys/time.h
+configure:12332: result: yes
+configure:12332: checking syslog.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking syslog.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for syslog.h
+configure:12332: result: yes
+configure:12332: checking for unistd.h
+configure:12332: result: yes
+configure:12332: checking cairo/cairo.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking cairo/cairo.h presence
+configure:12332: gcc -E  conftest.c
+configure:12332: $? = 0
+configure:12332: result: yes
+configure:12332: checking for cairo/cairo.h
+configure:12332: result: yes
+configure:12332: checking pngstruct.h usability
+configure:12332: gcc -std=gnu99 -c -g -O2  conftest.c >&5
 conftest.c:65:23: fatal error: pngstruct.h: No such file or directory
 compilation terminated.
-configure:12317: $? = 1
+configure:12332: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -876,12 +876,12 @@ configure: failed program was:
 | # include <unistd.h>
 | #endif
 | #include <pngstruct.h>
-configure:12317: result: no
-configure:12317: checking pngstruct.h presence
-configure:12317: gcc -E  conftest.c
+configure:12332: result: no
+configure:12332: checking pngstruct.h presence
+configure:12332: gcc -E  conftest.c
 conftest.c:32:23: fatal error: pngstruct.h: No such file or directory
 compilation terminated.
-configure:12317: $? = 1
+configure:12332: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -915,31 +915,32 @@ configure: failed program was:
 | #define HAVE_CAIRO_CAIRO_H 1
 | /* end confdefs.h.  */
 | #include <pngstruct.h>
-configure:12317: result: no
-configure:12317: checking for pngstruct.h
-configure:12317: result: no
-configure:12317: checking jpeglib.h usability
-configure:12317: gcc -std=gnu99 -c -g -O2  conftest.c >&5
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking jpeglib.h presence
-configure:12317: gcc -E  conftest.c
-configure:12317: $? = 0
-configure:12317: result: yes
-configure:12317: checking for jpeglib.h
-configure:12317: result: yes
-configure:12337: checking for dlopen in -ldl
-configure:12371: result: yes
-configure:12381: checking for png_write_png in -lpng
-configure:12406: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lpng   >&5
-configure:12406: $? = 0
-configure:12415: result: yes
-configure:12425: checking for jpeg_tanga in -ljpeg
-configure:12450: gcc -std=gnu99 -o conftest -g -O2   conftest.c -ljpeg   >&5
-/tmp/cc7uFwEr.o: In function `main':
-/home/vm/x/guacamole-server-0.8.3/conftest.c:46: undefined reference to `jpeg_tanga'
+configure:12332: result: no
+configure:12332: checking for pngstruct.h
+configure:12332: result: no
+configure:12352: checking for dlopen in -ldl
+configure:12386: result: yes
+configure:12396: checking for png_write_png in -lpng
+configure:12421: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lpng   >&5
+configure:12421: $? = 0
+configure:12430: result: yes
+configure:12440: checking for jpeg_write_scanlines in -ljpeg
+configure:12465: gcc -std=gnu99 -o conftest -g -O2   conftest.c -ljpeg   >&5
+configure:12465: $? = 0
+configure:12474: result: yes
+configure:12484: checking for cairo_create in -lcairo
+configure:12509: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lcairo   >&5
+configure:12509: $? = 0
+configure:12518: result: yes
+configure:12528: checking for pthread_create in -lpthread
+configure:12553: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lpthread   >&5
+configure:12553: $? = 0
+configure:12562: result: yes
+configure:12572: checking for CU_run_test in -lcunit
+configure:12597: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lcunit   >&5
+/usr/bin/ld: cannot find -lcunit
 collect2: ld returned 1 exit status
-configure:12450: $? = 1
+configure:12597: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "guacamole-server"
@@ -971,9 +972,9 @@ configure: failed program was:
 | #define HAVE_SYSLOG_H 1
 | #define HAVE_UNISTD_H 1
 | #define HAVE_CAIRO_CAIRO_H 1
-| #define HAVE_JPEGLIB_H 1
 | #define _POSIX_C_SOURCE 199309L
 | #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
 | /* end confdefs.h.  */
 | 
 | /* Override any GCC internal prototype to avoid an error.
@@ -982,16 +983,1439 @@ configure: failed program was:
 | #ifdef __cplusplus
 | extern "C"
 | #endif
-| char jpeg_tanga ();
+| char CU_run_test ();
 | int
 | main ()
 | {
-| return jpeg_tanga ();
+| return CU_run_test ();
 |   ;
 |   return 0;
 | }
-configure:12459: result: no
-configure:12464: error: "libjpeg is required for writing jpeg messages"
+configure:12606: result: no
+configure:12614: checking for main in -lwsock32
+configure:12633: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lwsock32   >&5
+/usr/bin/ld: cannot find -lwsock32
+collect2: ld returned 1 exit status
+configure:12633: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| /* end confdefs.h.  */
+| 
+| 
+| int
+| main ()
+| {
+| return main ();
+|   ;
+|   return 0;
+| }
+configure:12642: result: no
+configure:12665: checking for clock_gettime
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+/tmp/ccCXsOOp.o: In function `main':
+/home/vm/guacamole-server-0.8.3/conftest.c:69: undefined reference to `clock_gettime'
+collect2: ld returned 1 exit status
+configure:12665: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| /* end confdefs.h.  */
+| /* Define clock_gettime to an innocuous variant, in case <limits.h> declares clock_gettime.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define clock_gettime innocuous_clock_gettime
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char clock_gettime (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef clock_gettime
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char clock_gettime ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined __stub_clock_gettime || defined __stub___clock_gettime
+| choke me
+| #endif
+| 
+| int
+| main ()
+| {
+| return clock_gettime ();
+|   ;
+|   return 0;
+| }
+configure:12665: result: no
+configure:12665: checking for gettimeofday
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12665: checking for memmove
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+conftest.c:59:6: warning: conflicting types for built-in function 'memmove' [enabled by default]
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12665: checking for memset
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+conftest.c:60:6: warning: conflicting types for built-in function 'memset' [enabled by default]
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12665: checking for select
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12665: checking for strdup
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+conftest.c:62:6: warning: conflicting types for built-in function 'strdup' [enabled by default]
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12665: checking for nanosleep
+configure:12665: gcc -std=gnu99 -o conftest -g -O2   conftest.c  >&5
+configure:12665: $? = 0
+configure:12665: result: yes
+configure:12675: checking whether png_get_io_ptr is declared
+configure:12675: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12675: $? = 0
+configure:12675: result: yes
+configure:12683: checking whether cairo_format_stride_for_width is declared
+configure:12683: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12683: $? = 0
+configure:12683: result: yes
+configure:12692: checking for size_t
+configure:12692: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12692: $? = 0
+configure:12692: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:79:21: error: expected expression before ')' token
+configure:12692: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((size_t)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:12692: result: yes
+configure:12703: checking for ssize_t
+configure:12703: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12703: $? = 0
+configure:12703: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:79:22: error: expected expression before ')' token
+configure:12703: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((ssize_t)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:12703: result: yes
+configure:12745: checking openssl/ssl.h usability
+configure:12745: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:12745: $? = 0
+configure:12745: result: yes
+configure:12745: checking openssl/ssl.h presence
+configure:12745: gcc -E  conftest.c
+configure:12745: $? = 0
+configure:12745: result: yes
+configure:12745: checking for openssl/ssl.h
+configure:12745: result: yes
+configure:12753: checking for SSL_CTX_new in -lssl
+configure:12778: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lssl   >&5
+configure:12778: $? = 0
+configure:12787: result: yes
+configure:12831: checking vorbis/vorbisenc.h usability
+configure:12831: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c:77:30: fatal error: vorbis/vorbisenc.h: No such file or directory
+compilation terminated.
+configure:12831: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <vorbis/vorbisenc.h>
+configure:12831: result: no
+configure:12831: checking vorbis/vorbisenc.h presence
+configure:12831: gcc -E  conftest.c
+conftest.c:44:30: fatal error: vorbis/vorbisenc.h: No such file or directory
+compilation terminated.
+configure:12831: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| #include <vorbis/vorbisenc.h>
+configure:12831: result: no
+configure:12831: checking for vorbis/vorbisenc.h
+configure:12831: result: no
+configure:12839: checking for ogg_stream_init in -logg
+configure:12864: gcc -std=gnu99 -o conftest -g -O2   conftest.c -logg   >&5
+/usr/bin/ld: cannot find -logg
+collect2: ld returned 1 exit status
+configure:12864: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char ogg_stream_init ();
+| int
+| main ()
+| {
+| return ogg_stream_init ();
+|   ;
+|   return 0;
+| }
+configure:12873: result: no
+configure:12881: checking for vorbis_block_init in -lvorbis
+configure:12906: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lvorbis   >&5
+/usr/bin/ld: cannot find -lvorbis
+collect2: ld returned 1 exit status
+configure:12906: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char vorbis_block_init ();
+| int
+| main ()
+| {
+| return vorbis_block_init ();
+|   ;
+|   return 0;
+| }
+configure:12915: result: no
+configure:12923: checking for vorbis_encode_init in -lvorbisenc
+configure:12948: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lvorbisenc   >&5
+/usr/bin/ld: cannot find -lvorbisenc
+collect2: ld returned 1 exit status
+configure:12948: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char vorbis_encode_init ();
+| int
+| main ()
+| {
+| return vorbis_encode_init ();
+|   ;
+|   return 0;
+| }
+configure:12957: result: no
+configure:12980: WARNING:
+  --------------------------------------------
+   Unable to find libogg / libvorbis / libvorbisenc.
+   Sound will not be encoded with Ogg Vorbis.
+  --------------------------------------------
+configure:13000: checking for pa_context_new in -lpulse
+configure:13025: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lpulse   >&5
+/usr/bin/ld: cannot find -lpulse
+collect2: ld returned 1 exit status
+configure:13025: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char pa_context_new ();
+| int
+| main ()
+| {
+| return pa_context_new ();
+|   ;
+|   return 0;
+| }
+configure:13034: result: no
+configure:13057: WARNING:
+  --------------------------------------------
+   Unable to find libpulse
+   Sound support for VNC will be disabled
+  --------------------------------------------
+configure:13129: checking for pkg-config
+configure:13147: found /usr/bin/pkg-config
+configure:13159: result: /usr/bin/pkg-config
+configure:13184: checking pkg-config is at least version 0.9.0
+configure:13187: result: yes
+configure:13197: checking for PANGO
+configure:13204: $PKG_CONFIG --exists --print-errors "pango"
+Package pango was not found in the pkg-config search path.
+Perhaps you should add the directory containing `pango.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'pango' found
+configure:13207: $? = 1
+configure:13221: $PKG_CONFIG --exists --print-errors "pango"
+Package pango was not found in the pkg-config search path.
+Perhaps you should add the directory containing `pango.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'pango' found
+configure:13224: $? = 1
+configure:13238: result: no
+No package 'pango' found
+configure:13268: checking for PANGOCAIRO
+configure:13275: $PKG_CONFIG --exists --print-errors "pangocairo"
+Package pangocairo was not found in the pkg-config search path.
+Perhaps you should add the directory containing `pangocairo.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'pangocairo' found
+configure:13278: $? = 1
+configure:13292: $PKG_CONFIG --exists --print-errors "pangocairo"
+Package pangocairo was not found in the pkg-config search path.
+Perhaps you should add the directory containing `pangocairo.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'pangocairo' found
+configure:13295: $? = 1
+configure:13309: result: no
+No package 'pangocairo' found
+configure:13345: checking for rfbInitClient in -lvncclient
+configure:13370: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lvncclient   >&5
+configure:13370: $? = 0
+configure:13379: result: yes
+configure:13406: checking for rfbClient.destHost
+configure:13406: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13406: $? = 0
+configure:13406: result: yes
+configure:13418: checking for rfbClient.destPort
+configure:13418: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13418: $? = 0
+configure:13418: result: yes
+configure:13464: checking for glyph_cache_register_callbacks in -lfreerdp-cache
+configure:13489: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lfreerdp-cache   >&5
+configure:13489: $? = 0
+configure:13498: result: yes
+configure:13518: checking for freerdp_new in -lfreerdp-core
+configure:13543: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lfreerdp-core   >&5
+configure:13543: $? = 0
+configure:13552: result: yes
+configure:13572: checking for freerdp_channels_new in -lfreerdp-client
+configure:13597: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lfreerdp-client   >&5
+configure:13597: $? = 0
+configure:13606: result: yes
+configure:13668: checking for svc_plugin_init in -lfreerdp-utils
+configure:13693: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lfreerdp-utils   >&5
+configure:13693: $? = 0
+configure:13702: result: yes
+configure:13722: checking for freerdp_image_convert in -lfreerdp-codec
+configure:13747: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lfreerdp-codec   >&5
+configure:13747: $? = 0
+configure:13756: result: yes
+configure:13776: checking for rdpSvcPlugin.interval_ms
+configure:13776: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:53:12: error: 'rdpSvcPlugin' has no member named 'interval_ms'
+configure:13776: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| /* end confdefs.h.  */
+| #include <freerdp/utils/svc_plugin.h>
+| 
+| int
+| main ()
+| {
+| static rdpSvcPlugin ac_aggr;
+| if (ac_aggr.interval_ms)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:13776: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:53:19: error: 'rdpSvcPlugin' has no member named 'interval_ms'
+configure:13776: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| /* end confdefs.h.  */
+| #include <freerdp/utils/svc_plugin.h>
+| 
+| int
+| main ()
+| {
+| static rdpSvcPlugin ac_aggr;
+| if (sizeof ac_aggr.interval_ms)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:13776: result: no
+configure:13791: checking freerdp/locale/keyboard.h usability
+configure:13791: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13791: $? = 0
+configure:13791: result: yes
+configure:13791: checking freerdp/locale/keyboard.h presence
+configure:13791: gcc -E  conftest.c
+configure:13791: $? = 0
+configure:13791: result: yes
+configure:13791: checking for freerdp/locale/keyboard.h
+configure:13791: result: yes
+configure:13831: checking freerdp/addin.h usability
+configure:13831: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13831: $? = 0
+configure:13831: result: yes
+configure:13831: checking freerdp/addin.h presence
+configure:13831: gcc -E  conftest.c
+configure:13831: $? = 0
+configure:13831: result: yes
+configure:13831: checking for freerdp/addin.h
+configure:13831: result: yes
+configure:13831: checking freerdp/client/channels.h usability
+configure:13831: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13831: $? = 0
+configure:13831: result: yes
+configure:13831: checking freerdp/client/channels.h presence
+configure:13831: gcc -E  conftest.c
+configure:13831: $? = 0
+configure:13831: result: yes
+configure:13831: checking for freerdp/client/channels.h
+configure:13831: result: yes
+configure:13845: checking for freerdp/client/cliprdr.h
+configure:13845: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13845: $? = 0
+configure:13845: result: yes
+configure:13884: checking whether freerdp_register_addin_provider is declared
+configure:13884: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13884: $? = 0
+configure:13884: result: yes
+configure:13897: checking winpr/stream.h usability
+configure:13897: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13897: $? = 0
+configure:13897: result: yes
+configure:13897: checking winpr/stream.h presence
+configure:13897: gcc -E  conftest.c
+configure:13897: $? = 0
+configure:13897: result: yes
+configure:13897: checking for winpr/stream.h
+configure:13897: result: yes
+configure:13925: checking winpr/wtypes.h usability
+configure:13925: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13925: $? = 0
+configure:13925: result: yes
+configure:13925: checking winpr/wtypes.h presence
+configure:13925: gcc -E  conftest.c
+configure:13925: $? = 0
+configure:13925: result: yes
+configure:13925: checking for winpr/wtypes.h
+configure:13925: result: yes
+configure:13963: checking for freerdp.ContextSize
+configure:13963: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:13963: $? = 0
+configure:13963: result: yes
+configure:14014: checking for rdpSettings.Width
+configure:14014: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:60:12: error: 'rdpSettings' has no member named 'Width'
+configure:14014: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| #define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+| #define HAVE_FREERDP_ADDIN_H 1
+| #define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+| #define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+| #define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+| #define ENABLE_WINPR 1
+| #define HAVE_FREERDP_CONTEXTSIZE 1
+| /* end confdefs.h.  */
+| #include <freerdp/freerdp.h>
+| 
+| int
+| main ()
+| {
+| static rdpSettings ac_aggr;
+| if (ac_aggr.Width)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:14014: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:60:19: error: 'rdpSettings' has no member named 'Width'
+configure:14014: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| #define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+| #define HAVE_FREERDP_ADDIN_H 1
+| #define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+| #define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+| #define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+| #define ENABLE_WINPR 1
+| #define HAVE_FREERDP_CONTEXTSIZE 1
+| /* end confdefs.h.  */
+| #include <freerdp/freerdp.h>
+| 
+| int
+| main ()
+| {
+| static rdpSettings ac_aggr;
+| if (sizeof ac_aggr.Width)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:14014: result: no
+configure:14024: checking for rdpSettings.Height
+configure:14024: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:60:12: error: 'rdpSettings' has no member named 'Height'
+configure:14024: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| #define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+| #define HAVE_FREERDP_ADDIN_H 1
+| #define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+| #define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+| #define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+| #define ENABLE_WINPR 1
+| #define HAVE_FREERDP_CONTEXTSIZE 1
+| /* end confdefs.h.  */
+| #include <freerdp/freerdp.h>
+| 
+| int
+| main ()
+| {
+| static rdpSettings ac_aggr;
+| if (ac_aggr.Height)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:14024: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:60:19: error: 'rdpSettings' has no member named 'Height'
+configure:14024: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| #define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+| #define HAVE_FREERDP_ADDIN_H 1
+| #define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+| #define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+| #define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+| #define ENABLE_WINPR 1
+| #define HAVE_FREERDP_CONTEXTSIZE 1
+| /* end confdefs.h.  */
+| #include <freerdp/freerdp.h>
+| 
+| int
+| main ()
+| {
+| static rdpSettings ac_aggr;
+| if (sizeof ac_aggr.Height)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:14024: result: no
+configure:14034: checking for rdpSettings.OrderSupport
+configure:14034: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:14034: $? = 0
+configure:14034: result: yes
+configure:14104: checking whether rdpBitmap.Decompress() requires the codec_id
+configure:14121: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:14121: $? = 0
+configure:14122: result: yes
+configure:14136: checking whether rdpPalette.entries is static
+configure:14144: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:14144: $? = 0
+configure:14145: result: yes
+configure:14160: checking for wMessage.id
+configure:14160: gcc -std=gnu99 -c -g -O2  conftest.c >&5
+configure:14160: $? = 0
+configure:14160: result: yes
+configure:14241: checking for ssh_new in -lssh
+configure:14266: gcc -std=gnu99 -o conftest -g -O2   conftest.c -lssh   >&5
+/usr/bin/ld: cannot find -lssh
+collect2: ld returned 1 exit status
+configure:14266: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "guacamole-server"
+| #define PACKAGE_TARNAME "guacamole-server"
+| #define PACKAGE_VERSION "0.8.3"
+| #define PACKAGE_STRING "guacamole-server 0.8.3"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define PACKAGE "guacamole-server"
+| #define VERSION "0.8.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_SYSLOG_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_CAIRO_CAIRO_H 1
+| #define _POSIX_C_SOURCE 199309L
+| #define _BSD_SOURCE /**/
+| #define HAVE_LIBPTHREAD 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_STRDUP 1
+| #define HAVE_NANOSLEEP 1
+| #define HAVE_PNG_GET_IO_PTR 1
+| #define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+| #define ENABLE_SSL 1
+| #define HAVE_RFBCLIENT_DESTHOST 1
+| #define HAVE_RFBCLIENT_DESTPORT 1
+| #define ENABLE_VNC_REPEATER 1
+| #define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+| #define HAVE_FREERDP_ADDIN_H 1
+| #define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+| #define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+| #define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+| #define ENABLE_WINPR 1
+| #define HAVE_FREERDP_CONTEXTSIZE 1
+| #define HAVE_RDPSETTINGS_ORDERSUPPORT 1
+| #define HAVE_WMESSAGE_ID 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char ssh_new ();
+| int
+| main ()
+| {
+| return ssh_new ();
+|   ;
+|   return 0;
+| }
+configure:14275: result: no
+configure:14502: creating ./config.status
+
+## ---------------------- ##
+## Running config.status. ##
+## ---------------------- ##
+
+This file was extended by guacamole-server config.status 0.8.3, which was
+generated by GNU Autoconf 2.68.  Invocation command line was
+
+  CONFIG_FILES    = 
+  CONFIG_HEADERS  = 
+  CONFIG_LINKS    = 
+  CONFIG_COMMANDS = 
+  $ ./config.status 
+
+on vm-VirtualBox
+
+config.status:1062: creating Makefile
+config.status:1062: creating tests/Makefile
+config.status:1062: creating src/libguac/Makefile
+config.status:1062: creating src/guacd/Makefile
+config.status:1062: creating src/protocols/rdp/Makefile
+config.status:1062: creating src/protocols/ssh/Makefile
+config.status:1062: creating src/protocols/vnc/Makefile
+config.status:1234: executing depfiles commands
+config.status:1234: executing libtool commands
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -1031,14 +2455,28 @@ ac_cv_env_host_alias_set=
 ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
+ac_cv_func_clock_gettime=no
 ac_cv_func_dlopen=no
+ac_cv_func_gettimeofday=yes
+ac_cv_func_memmove=yes
+ac_cv_func_memset=yes
+ac_cv_func_nanosleep=yes
+ac_cv_func_select=yes
 ac_cv_func_shl_load=no
+ac_cv_func_strdup=yes
+ac_cv_have_decl_cairo_format_stride_for_width=yes
+ac_cv_have_decl_freerdp_register_addin_provider=yes
+ac_cv_have_decl_png_get_io_ptr=yes
 ac_cv_header_cairo_cairo_h=yes
 ac_cv_header_dlfcn_h=yes
 ac_cv_header_fcntl_h=yes
+ac_cv_header_freerdp_addin_h=yes
+ac_cv_header_freerdp_client_channels_h=yes
+ac_cv_header_freerdp_client_cliprdr_h=yes
+ac_cv_header_freerdp_locale_keyboard_h=yes
 ac_cv_header_inttypes_h=yes
-ac_cv_header_jpeglib_h=yes
 ac_cv_header_memory_h=yes
+ac_cv_header_openssl_ssl_h=yes
 ac_cv_header_pngstruct_h=no
 ac_cv_header_stdc=yes
 ac_cv_header_stdint_h=yes
@@ -1052,16 +2490,44 @@ ac_cv_header_sys_types_h=yes
 ac_cv_header_syslog_h=yes
 ac_cv_header_time_h=yes
 ac_cv_header_unistd_h=yes
+ac_cv_header_vorbis_vorbisenc_h=no
+ac_cv_header_winpr_stream_h=yes
+ac_cv_header_winpr_wtypes_h=yes
 ac_cv_host=x86_64-unknown-linux-gnu
+ac_cv_lib_cairo_cairo_create=yes
+ac_cv_lib_cunit_CU_run_test=no
 ac_cv_lib_dl_dlopen=yes
 ac_cv_lib_dld_shl_load=no
-ac_cv_lib_jpeg_jpeg_tanga=no
+ac_cv_lib_freerdp_cache_glyph_cache_register_callbacks=yes
+ac_cv_lib_freerdp_client_freerdp_channels_new=yes
+ac_cv_lib_freerdp_codec_freerdp_image_convert=yes
+ac_cv_lib_freerdp_core_freerdp_new=yes
+ac_cv_lib_freerdp_utils_svc_plugin_init=yes
+ac_cv_lib_jpeg_jpeg_write_scanlines=yes
+ac_cv_lib_ogg_ogg_stream_init=no
 ac_cv_lib_png_png_write_png=yes
+ac_cv_lib_pthread_pthread_create=yes
+ac_cv_lib_pulse_pa_context_new=no
+ac_cv_lib_ssh_ssh_new=no
+ac_cv_lib_ssl_SSL_CTX_new=yes
+ac_cv_lib_vncclient_rfbInitClient=yes
+ac_cv_lib_vorbis_vorbis_block_init=no
+ac_cv_lib_vorbisenc_vorbis_encode_init=no
+ac_cv_lib_wsock32_main=no
+ac_cv_member_freerdp_ContextSize=yes
+ac_cv_member_rdpSettings_Height=no
+ac_cv_member_rdpSettings_OrderSupport=yes
+ac_cv_member_rdpSettings_Width=no
+ac_cv_member_rdpSvcPlugin_interval_ms=no
+ac_cv_member_rfbClient_destHost=yes
+ac_cv_member_rfbClient_destPort=yes
+ac_cv_member_wMessage_id=yes
 ac_cv_objext=o
 ac_cv_path_EGREP='/bin/grep -E'
 ac_cv_path_FGREP='/bin/grep -F'
 ac_cv_path_GREP=/bin/grep
 ac_cv_path_SED=/bin/sed
+ac_cv_path_ac_pt_PKG_CONFIG=/usr/bin/pkg-config
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/bin/mkdir
 ac_cv_prog_AWK=mawk
@@ -1076,6 +2542,8 @@ ac_cv_prog_cc_c89=
 ac_cv_prog_cc_c99=-std=gnu99
 ac_cv_prog_cc_g=yes
 ac_cv_prog_make_make_set=yes
+ac_cv_type_size_t=yes
+ac_cv_type_ssize_t=yes
 am_cv_CC_dependencies_compiler_type=gcc3
 lt_cv_ar_at_file=@
 lt_cv_archive_cmds_need_lc=no
@@ -1112,17 +2580,17 @@ lt_cv_to_tool_file_cmd=func_convert_file_noop
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run aclocal-1.11'
+ACLOCAL='${SHELL} /home/vm/guacamole-server-0.8.3/missing --run aclocal-1.11'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
 AMTAR='$${TAR-tar}'
 AR='ar'
-AUTOCONF='${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run autoconf'
-AUTOHEADER='${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run autoheader'
-AUTOMAKE='${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run automake-1.11'
+AUTOCONF='${SHELL} /home/vm/guacamole-server-0.8.3/missing --run autoconf'
+AUTOHEADER='${SHELL} /home/vm/guacamole-server-0.8.3/missing --run autoheader'
+AUTOMAKE='${SHELL} /home/vm/guacamole-server-0.8.3/missing --run automake-1.11'
 AWK='mawk'
-CAIRO_LIBS=''
+CAIRO_LIBS='-lcairo'
 CC='gcc -std=gnu99'
 CCDEPMODE='depmode=gcc3'
 CFLAGS='-g -O2'
@@ -1130,7 +2598,7 @@ CPP='gcc -E'
 CPPFLAGS=''
 CUNIT_LIBS=''
 CYGPATH_W='echo'
-DEFS=''
+DEFS='-DPACKAGE_NAME=\"guacamole-server\" -DPACKAGE_TARNAME=\"guacamole-server\" -DPACKAGE_VERSION=\"0.8.3\" -DPACKAGE_STRING=\"guacamole-server\ 0.8.3\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"guacamole-server\" -DVERSION=\"0.8.3\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FCNTL_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_SOCKET_H=1 -DHAVE_TIME_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_SYSLOG_H=1 -DHAVE_UNISTD_H=1 -DHAVE_CAIRO_CAIRO_H=1 -D_POSIX_C_SOURCE=199309L -D_BSD_SOURCE=/\*\*/ -DHAVE_LIBPTHREAD=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MEMMOVE=1 -DHAVE_MEMSET=1 -DHAVE_SELECT=1 -DHAVE_STRDUP=1 -DHAVE_NANOSLEEP=1 -DHAVE_PNG_GET_IO_PTR=1 -DHAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH=1 -DENABLE_SSL=1 -DHAVE_RFBCLIENT_DESTHOST=1 -DHAVE_RFBCLIENT_DESTPORT=1 -DENABLE_VNC_REPEATER=1 -DHAVE_FREERDP_LOCALE_KEYBOARD_H=1 -DHAVE_FREERDP_ADDIN_H=1 -DHAVE_FREERDP_CLIENT_CHANNELS_H=1 -DHAVE_FREERDP_CLIENT_CLIPRDR_H=1 -DHAVE_FREERDP_REGISTER_ADDIN_PROVIDER=1 -DENABLE_WINPR=1 -DHAVE_FREERDP_CONTEXTSIZE=1 -DHAVE_RDPSETTINGS_ORDERSUPPORT=1 -DHAVE_WMESSAGE_ID=1'
 DEPDIR='.deps'
 DLLTOOL='false'
 DL_LIBS='-ldl'
@@ -1141,20 +2609,20 @@ ECHO_N='-n'
 ECHO_T=''
 EGREP='/bin/grep -E'
 ENABLE_INIT_FALSE=''
-ENABLE_INIT_TRUE=''
+ENABLE_INIT_TRUE='#'
 ENABLE_OGG_FALSE=''
-ENABLE_OGG_TRUE=''
+ENABLE_OGG_TRUE='#'
 ENABLE_PULSE_FALSE=''
-ENABLE_PULSE_TRUE=''
-ENABLE_RDP_FALSE=''
+ENABLE_PULSE_TRUE='#'
+ENABLE_RDP_FALSE='#'
 ENABLE_RDP_TRUE=''
 ENABLE_SSH_FALSE=''
-ENABLE_SSH_TRUE=''
-ENABLE_SSL_FALSE=''
+ENABLE_SSH_TRUE='#'
+ENABLE_SSL_FALSE='#'
 ENABLE_SSL_TRUE=''
-ENABLE_VNC_FALSE=''
+ENABLE_VNC_FALSE='#'
 ENABLE_VNC_TRUE=''
-ENABLE_WINPR_FALSE=''
+ENABLE_WINPR_FALSE='#'
 ENABLE_WINPR_TRUE=''
 EXEEXT=''
 FGREP='/bin/grep -F'
@@ -1163,20 +2631,20 @@ INSTALL_DATA='${INSTALL} -m 644'
 INSTALL_PROGRAM='${INSTALL}'
 INSTALL_SCRIPT='${INSTALL}'
 INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
-JPEG_LIBS=''
+JPEG_LIBS='-ljpeg'
 LD='/usr/bin/ld -m elf_x86_64'
 LDFLAGS=''
 LEGACY_FREERDP_EXTENSIONS_FALSE=''
-LEGACY_FREERDP_EXTENSIONS_TRUE=''
-LIBGUAC_INCLUDE=''
-LIBGUAC_LTLIB=''
+LEGACY_FREERDP_EXTENSIONS_TRUE='#'
+LIBGUAC_INCLUDE='-I$(top_srcdir)/src/libguac'
+LIBGUAC_LTLIB='$(top_builddir)/src/libguac/libguac.la'
 LIBOBJS=''
 LIBS=''
 LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 LIPO=''
 LN_S='ln -s'
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /home/vm/x/guacamole-server-0.8.3/missing --run makeinfo'
+MAKEINFO='${SHELL} /home/vm/guacamole-server-0.8.3/missing --run makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/bin/mkdir -p'
 NM='/usr/bin/nm -B'
@@ -1197,28 +2665,28 @@ PANGOCAIRO_LIBS=''
 PANGO_CFLAGS=''
 PANGO_LIBS=''
 PATH_SEPARATOR=':'
-PKG_CONFIG=''
+PKG_CONFIG='/usr/bin/pkg-config'
 PKG_CONFIG_LIBDIR=''
 PKG_CONFIG_PATH=''
 PNG_LIBS='-lpng'
-PTHREAD_LIBS=''
+PTHREAD_LIBS='-lpthread'
 PULSE_LIBS=''
 RANLIB='ranlib'
-RDP_LIBS=''
+RDP_LIBS=' -lfreerdp-cache -lfreerdp-core -lfreerdp-client -lfreerdp-utils -lfreerdp-codec'
 SED='/bin/sed'
 SET_MAKE=''
 SHELL='/bin/bash'
 SSH_LIBS=''
-SSL_LIBS=''
+SSL_LIBS=' -lssl'
 STRIP='strip'
 VERSION='0.8.3'
-VNC_LIBS=''
+VNC_LIBS=' -lvncclient'
 VORBIS_LIBS=''
 ac_ct_AR='ar'
 ac_ct_CC='gcc'
 ac_ct_DUMPBIN=''
 am__EXEEXT_FALSE=''
-am__EXEEXT_TRUE=''
+am__EXEEXT_TRUE='#'
 am__fastdepCC_FALSE='#'
 am__fastdepCC_TRUE=''
 am__include='include'
@@ -1238,7 +2706,7 @@ datadir='${datarootdir}'
 datarootdir='${prefix}/share'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
 dvidir='${docdir}'
-exec_prefix='NONE'
+exec_prefix='${prefix}'
 host='x86_64-unknown-linux-gnu'
 host_alias=''
 host_cpu='x86_64'
@@ -1248,7 +2716,7 @@ htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
 init_dir=''
-install_sh='${SHELL} /home/vm/x/guacamole-server-0.8.3/install-sh'
+install_sh='${SHELL} /home/vm/guacamole-server-0.8.3/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
@@ -1257,7 +2725,7 @@ mandir='${datarootdir}/man'
 mkdir_p='/bin/mkdir -p'
 oldincludedir='/usr/include'
 pdfdir='${docdir}'
-prefix='NONE'
+prefix='/usr/local'
 program_transform_name='s,x,x,'
 psdir='${docdir}'
 sbindir='${exec_prefix}/sbin'
@@ -1299,8 +2767,29 @@ target_alias=''
 #define HAVE_SYSLOG_H 1
 #define HAVE_UNISTD_H 1
 #define HAVE_CAIRO_CAIRO_H 1
-#define HAVE_JPEGLIB_H 1
 #define _POSIX_C_SOURCE 199309L
 #define _BSD_SOURCE /**/
+#define HAVE_LIBPTHREAD 1
+#define HAVE_GETTIMEOFDAY 1
+#define HAVE_MEMMOVE 1
+#define HAVE_MEMSET 1
+#define HAVE_SELECT 1
+#define HAVE_STRDUP 1
+#define HAVE_NANOSLEEP 1
+#define HAVE_PNG_GET_IO_PTR 1
+#define HAVE_CAIRO_FORMAT_STRIDE_FOR_WIDTH 1
+#define ENABLE_SSL 1
+#define HAVE_RFBCLIENT_DESTHOST 1
+#define HAVE_RFBCLIENT_DESTPORT 1
+#define ENABLE_VNC_REPEATER 1
+#define HAVE_FREERDP_LOCALE_KEYBOARD_H 1
+#define HAVE_FREERDP_ADDIN_H 1
+#define HAVE_FREERDP_CLIENT_CHANNELS_H 1
+#define HAVE_FREERDP_CLIENT_CLIPRDR_H 1
+#define HAVE_FREERDP_REGISTER_ADDIN_PROVIDER 1
+#define ENABLE_WINPR 1
+#define HAVE_FREERDP_CONTEXTSIZE 1
+#define HAVE_RDPSETTINGS_ORDERSUPPORT 1
+#define HAVE_WMESSAGE_ID 1
 
-configure: exit 1
+configure: exit 0
