@@ -37,10 +37,7 @@ socket.lo: socket.c /usr/include/fcntl.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/x86_64-linux-gnu/bits/unistd.h \
  /usr/include/x86_64-linux-gnu/sys/time.h guacamole/socket.h \
- guacamole/error.h /usr/include/syslog.h \
- /usr/include/x86_64-linux-gnu/sys/syslog.h \
- /usr/include/x86_64-linux-gnu/bits/syslog-path.h \
- /usr/include/x86_64-linux-gnu/bits/syslog.h /usr/include/iconv.h
+ guacamole/error.h
 
 /usr/include/fcntl.h:
 
@@ -153,13 +150,3 @@ socket.lo: socket.c /usr/include/fcntl.h /usr/include/features.h \
 guacamole/socket.h:
 
 guacamole/error.h:
-
-/usr/include/syslog.h:
-
-/usr/include/x86_64-linux-gnu/sys/syslog.h:
-
-/usr/include/x86_64-linux-gnu/bits/syslog-path.h:
-
-/usr/include/x86_64-linux-gnu/bits/syslog.h:
-
-/usr/include/iconv.h:

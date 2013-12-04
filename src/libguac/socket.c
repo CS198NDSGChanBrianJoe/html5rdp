@@ -57,9 +57,6 @@
 #include "socket.h"
 #include "error.h"
 
-#include <syslog.h>
-#include <iconv.h>
-
 char __guac_socket_BASE64_CHARACTERS[64] = {
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
     'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -336,10 +333,8 @@ ssize_t guac_socket_write_base64(guac_socket* socket, const void* buf, size_t co
     int retval;
 
     const unsigned char* char_buf = (const unsigned char*) buf;
-    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO,"Count: %zd", count);
-    closelog();
     const unsigned char* end = char_buf + count;
+
     guac_socket_update_buffer_begin(socket);
     while (char_buf < end) {
 
@@ -350,6 +345,7 @@ ssize_t guac_socket_write_base64(guac_socket* socket, const void* buf, size_t co
         }
 
     }
+
     guac_socket_update_buffer_end(socket);
     return 0;
 

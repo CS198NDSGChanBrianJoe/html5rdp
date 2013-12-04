@@ -37,6 +37,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <inttypes.h>
 #include <string.h>
@@ -225,58 +226,83 @@ void __guac_socket_flush_png(png_structp png) {
     /* Dummy function */
 }
 
+void init_buffer(struct jpeg_compress_struct *cinfo){
+
+}
+
+boolean empty_buffer(struct jpeg_compress_struct *cinfo){
+	return TRUE;
+}
+
+void term_buffer(struct jpeg_compress_struct *cinfo){
+
+}
 
 /*JPEG CODE*/
 int __guac_socket_write_length_jpeg(guac_socket* socket, cairo_surface_t* surface) {
     //parameters for the image
 
 
-    /*openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
     syslog(LOG_INFO,"Just Entered @...write_length_jpeg");
-    closelog();*/
+    closelog();
 
 
-    int w = cairo_image_surface_get_width(surface);
-    int h = cairo_image_surface_get_height(surface);
+    int width = cairo_image_surface_get_width(surface);
+    int height = cairo_image_surface_get_height(surface);
     int row_stride = cairo_image_surface_get_stride(surface);
     //converting the cairo surface into unsigned char data
     unsigned char* data = cairo_image_surface_get_data(surface);
+
     openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO,"Wala lang");
+    syslog(LOG_INFO,"surface = %s", data);
     closelog();
+
     openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO,"%x", data);
+    syslog(LOG_INFO,"width-%d,height-%d,stride-%d,data-%s", width, height, row_stride, data);
     closelog();
+
     //unsigned char data to JSAMPLE since JSAMPLE is just unsigned char and JSAMPLE is the data that is read by libjpeg
-    //JSAMPLE* jdata = data;
+    JSAMPLE* jdata = data;
 
     
      //the struct used for the compression and writing
     struct jpeg_compress_struct cinfo;
 
-    /*openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
     syslog(LOG_INFO,"cinfo initialized @...write_length_jpeg");
-    closelog();*/
+    closelog();
 
     //error handling variable
     struct jpeg_error_mgr jerr;
-    JSAMPROW row_pointer[1];
+    struct jpeg_destination_mgr dmgr;
+    JOCTET *buffer = malloc(10000000);
+    dmgr.init_destination = init_buffer;
+    dmgr.empty_output_buffer = empty_buffer;
+    dmgr.term_destination = term_buffer;
+    dmgr.next_output_byte = buffer;
+    dmgr.free_in_buffer = 10000000;
+    JSAMPROW row_pointer;
     cinfo.err = jpeg_std_error(&jerr);
 
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"Before jpeg_create_compress @...write_length_jpeg");
+    closelog();
 
+    jpeg_create_compress(&cinfo);
+    cinfo.dest = &dmgr;
 
-    /*jpeg_create_compress(&cinfo);
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"Before jpeg_mem_dest @...write_length_jpeg");
+    closelog();
 
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"buffer = %s", buffer);
+    closelog();
 
-
-
-    //buffer
-    unsigned long int x = 8192;
-    unsigned char* buf;
-    buf  = malloc(8192);
-    jpeg_mem_dest(&cinfo, &buf,&x);
-
-
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"After jpeg_mem_dest @...write_length_jpeg");
+    closelog();
 
 
     //setting the image sizes
@@ -287,138 +313,81 @@ int __guac_socket_write_length_jpeg(guac_socket* socket, cairo_surface_t* surfac
     //somehow the counterpart of libpng's pallette
     cinfo.in_color_space = JCS_RGB;
 
-
-
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"After cinfo initialization @...write_length_jpeg");
+    closelog();
 
     //required function for rendering
     jpeg_set_defaults(&cinfo);
+
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"After setting default parameters @...write_length_jpeg");
+    closelog();
+    jpeg_set_quality(&cinfo, 75, TRUE /* limit to baseline-JPEG values */);
     //starting the writing process
     jpeg_start_compress(&cinfo, TRUE);
+
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"After starting compression @...write_length_jpeg");
+    closelog();
+
     //the actual data per row since the are 3 data needed per pixel R data, G data and B data
-    //int row_stride = cinfo.image_width * stride;// JSAMPLEs per row in image_buffer
+    //int row_stride = cinfo.image_width * stride;   /* JSAMPLEs per row in image_buffer */
     
-
-
 
     //Copying the data to the compression structure which points to the buffer
-    int oldbufsize = 8192;
     while (cinfo.next_scanline < cinfo.image_height) {
-        row_pointer[0] = & jdata[cinfo.next_scanline * row_stride];
-	openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-	syslog(LOG_INFO,"%s", row_pointer[0]);
-    	closelog();        
-        int rptsize = 0;
+        row_pointer = (JSAMPROW) &jdata[cinfo.next_scanline * row_stride];
+        (void) jpeg_write_scanlines(&cinfo, &row_pointer, 1);
 
-        
-
-        while(row_pointer[0][rptsize] != '\0') {
-            rptsize++;        
-        }
-        rptsize-=1;
-
-        
-
-        int currbufsize=0;
-        while(buf[currbufsize] != '\0') {
-            currbufsize++;
-        }
-        currbufsize-=1; 
-
-        
-
-        int nextsize = currbufsize + rptsize;
-
-        if(nextsize > oldbufsize){
-
-            unsigned char* new_buffer;
-
-            openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-            syslog(LOG_INFO,"Expanding before @...write_length_jpeg");
-            closelog();
-
-            do {
-                oldbufsize <<= 1;
-            } while (nextsize > oldbufsize);
-
-            // Resize buffer
-            new_buffer = realloc(buf, oldbufsize);
-            buf = new_buffer;
-
-
-            //memcpy(buf + currbufsize, row_pointer[0], rptsize);
-            currbufsize += rptsize;
-        }
-
-        
-
-        (void) jpeg_write_scanlines(&cinfo, row_pointer, 1);
-
-        
     }
-
-    
-
     //finish the copying process
     jpeg_finish_compress(&cinfo);
-
-   
-
+    /*
+    buf[0] = 'T';
+    buf[1] = 'I';
+    buf[2] = '\0';
+    */
+    /*
     int bufsize=0;
     while(buf[bufsize] != '\0') {
         bufsize++;
     }
-    bufsize-=1;
+    */
+    //bufsize+=10;
+    /*
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"bufsize = %d", bufsize);
+    closelog();
+    */
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"buffer = %s", buffer);
+    closelog();
 
-    int base64_length = (bufsize + 2) / 3 * 4;
-    
-    // Write length and data
+    int base64_length = ((cinfo.dest->next_output_byte - buffer) + 2) / 3 * 4;
+
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"Before base64 @...write_length_jpeg");
+    closelog();
+
+    /* Write length and data */
     if (
            guac_socket_write_int(socket, base64_length)
         || guac_socket_write_string(socket, ".")
-        || guac_socket_write_base64(socket,buf, bufsize)
+        || guac_socket_write_base64(socket,buffer, cinfo.dest->next_output_byte - buffer)
         || guac_socket_flush_base64(socket)) {
-        free(buf);
+        free(buffer);
         return -1;
     }
-    free(buf);
+
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"After base64 @...write_length_jpeg");
+    closelog();
+
+    free(buffer);
 
     jpeg_destroy_compress(&cinfo);
-*/
-    FILE * outfile;
-    char filename[20] = "/home/vm/Image.jpg";
-	 if ((outfile = fopen(filename, "wb")) == NULL) {
-	    fprintf(stderr, "can't open %s\n", filename);
-	    return(-1);
-  	 }
 
-	jpeg_stdio_dest(&cinfo, outfile);
-	cinfo.image_width = w; 	/* image width and height, in pixels */
-	cinfo.image_height = h;
-	cinfo.input_components = 3;		/* # of color components per pixel */
-	cinfo.in_color_space = JCS_RGB; 	/* colorspace of input image */
-	
-	jpeg_set_defaults(&cinfo);
-	jpeg_set_quality(&cinfo, 20, TRUE /* limit to baseline-JPEG values */);
-	jpeg_start_compress(&cinfo, TRUE);
-	
-
-	  while (cinfo.next_scanline < cinfo.image_height) {
-	    /* jpeg_write_scanlines expects an array of pointers to scanlines.
-	     * Here the array is only one element long, but you could pass
-	     * more than one scanline at a time if that's more convenient.
-	     */
-	    row_pointer[0] = & data[cinfo.next_scanline * row_stride];
-	    (void) jpeg_write_scanlines(&cinfo, row_pointer, 1);
-	  }
-
-	  jpeg_finish_compress(&cinfo);
-	  /* After finish_compress, we can close the output file. */
-	  fclose(outfile);
-
-	  /* Step 7: release JPEG compression object */
-
-	  /* This is an important step since it will release a good deal of memory. */
-	  jpeg_destroy_compress(&cinfo);
     return 0;
  }
 /*JPEG CODE*/
@@ -449,6 +418,9 @@ int __guac_socket_write_length_png(guac_socket* socket, cairo_surface_t* surface
     int stride = cairo_image_surface_get_stride(surface);
     unsigned char* data = cairo_image_surface_get_data(surface);
 
+    openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
+    syslog(LOG_INFO,"surface = %s", data);
+    closelog();
 
     /* If not RGB24, use Cairo PNG writer */
     if (format != CAIRO_FORMAT_RGB24 || data == NULL)
